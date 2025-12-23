@@ -1,0 +1,98 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.example:torneos >-------------------------
+[INFO] Building torneos 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.0:run (default-cli) > test-compile @ torneos >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ torneos ---
+[INFO] Copying 6 resources from src/main/resources to target/classes
+[INFO] Copying 7 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ torneos ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ torneos ---
+[INFO] skip non existing resourceDirectory /Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ torneos ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] <<< spring-boot:3.2.0:run (default-cli) < test-compile @ torneos <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.0:run (default-cli) @ torneos ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-12-23T06:49:42.339-05:00  INFO 69813 --- [torneos-backend] [           main] com.example.torneos.TorneosApplication   : Starting TorneosApplication using Java 25.0.1 with PID 69813 (/Users/nicolas.perez/Pragma/e-sport/backend-torneos/target/classes started by nicolas.perez in /Users/nicolas.perez/Pragma/e-sport/backend-torneos)
+2025-12-23T06:49:42.340-05:00  INFO 69813 --- [torneos-backend] [           main] com.example.torneos.TorneosApplication   : The following 1 profile is active: "postgres"
+2025-12-23T06:49:42.858-05:00  INFO 69813 --- [torneos-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-12-23T06:49:42.934-05:00  INFO 69813 --- [torneos-backend] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 13 JPA repository interfaces.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/Users/nicolas.perez/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2025-12-23T06:49:43.275-05:00  INFO 69813 --- [torneos-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-23T06:49:43.279-05:00  INFO 69813 --- [torneos-backend] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-23T06:49:43.280-05:00  INFO 69813 --- [torneos-backend] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-12-23T06:49:43.306-05:00  INFO 69813 --- [torneos-backend] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-23T06:49:43.306-05:00  INFO 69813 --- [torneos-backend] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 950 ms
+2025-12-23T06:49:43.417-05:00  INFO 69813 --- [torneos-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-23T06:49:43.515-05:00  INFO 69813 --- [torneos-backend] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@277bc3a5
+2025-12-23T06:49:43.516-05:00  INFO 69813 --- [torneos-backend] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-23T06:49:43.546-05:00  INFO 69813 --- [torneos-backend] [           main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2025-12-23T06:49:43.546-05:00  INFO 69813 --- [torneos-backend] [           main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2025-12-23T06:49:43.546-05:00  INFO 69813 --- [torneos-backend] [           main] o.f.c.internal.license.VersionPrinter    : 
+2025-12-23T06:49:43.550-05:00  INFO 69813 --- [torneos-backend] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/torneo (PostgreSQL 18.0)
+2025-12-23T06:49:43.553-05:00  WARN 69813 --- [torneos-backend] [           main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2025-12-23T06:49:43.609-05:00  INFO 69813 --- [torneos-backend] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 6 migrations (execution time 00:00.038s)
+2025-12-23T06:49:43.656-05:00  INFO 69813 --- [torneos-backend] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 6
+2025-12-23T06:49:43.657-05:00  INFO 69813 --- [torneos-backend] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2025-12-23T06:49:43.701-05:00  INFO 69813 --- [torneos-backend] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-23T06:49:43.718-05:00  INFO 69813 --- [torneos-backend] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2025-12-23T06:49:43.728-05:00  INFO 69813 --- [torneos-backend] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-12-23T06:49:43.808-05:00  INFO 69813 --- [torneos-backend] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-23T06:49:43.829-05:00  WARN 69813 --- [torneos-backend] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-23T06:49:44.144-05:00  INFO 69813 --- [torneos-backend] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-23T06:49:44.231-05:00  INFO 69813 --- [torneos-backend] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-12-23T06:49:44.341-05:00  INFO 69813 --- [torneos-backend] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-12-23T06:49:44.597-05:00 DEBUG 69813 --- [torneos-backend] [           main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2025-12-23T06:49:45.254-05:00  WARN 69813 --- [torneos-backend] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-12-23T06:49:45.274-05:00  WARN 69813 --- [torneos-backend] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 1444cf24-3ee6-4632-958f-138a75531ea1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-23T06:49:45.382-05:00 DEBUG 69813 --- [torneos-backend] [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 58 mappings in 'requestMappingHandlerMapping'
+2025-12-23T06:49:45.416-05:00 DEBUG 69813 --- [torneos-backend] [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-12-23T06:49:45.475-05:00  INFO 69813 --- [torneos-backend] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2025-12-23T06:49:45.523-05:00  INFO 69813 --- [torneos-backend] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b36c5aa, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1af3bf5b, org.springframework.security.web.context.SecurityContextHolderFilter@97f2dbb, org.springframework.security.web.header.HeaderWriterFilter@114ef80a, org.springframework.web.filter.CorsFilter@7150439c, org.springframework.security.web.authentication.logout.LogoutFilter@7672ea5f, com.example.torneos.infrastructure.config.JwtAuthenticationFilter@3a07afe6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b95557f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6a146acb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e928f86, org.springframework.security.web.session.SessionManagementFilter@18269eaf, org.springframework.security.web.access.ExceptionTranslationFilter@1572b7e4, org.springframework.security.web.access.intercept.AuthorizationFilter@3c16f821]
+2025-12-23T06:49:45.576-05:00 DEBUG 69813 --- [torneos-backend] [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-12-23T06:49:45.595-05:00 DEBUG 69813 --- [torneos-backend] [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-12-23T06:49:45.774-05:00  INFO 69813 --- [torneos-backend] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2025-12-23T06:49:45.780-05:00  INFO 69813 --- [torneos-backend] [           main] com.example.torneos.TorneosApplication   : Started TorneosApplication in 3.575 seconds (process running for 3.708)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:45 min
+[INFO] Finished at: 2025-12-23T06:51:25-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.0:run (default-cli) on project torneos: Process terminated with exit code: 137 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

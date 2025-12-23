@@ -1,0 +1,7 @@
+com/example/torneos/application/service/AuditLogServiceTest.class
+com/example/torneos/application/service/JwtServiceTest.class
+com/example/torneos/application/service/UserServiceTest.class
+com/example/torneos/application/service/CategoryServiceTest.class
+com/example/torneos/application/service/TournamentServiceTest.class
+com/example/torneos/application/service/StreamLinkControlServiceTest.class
+com/example/torneos/application/service/StreamAccessServiceTest.class

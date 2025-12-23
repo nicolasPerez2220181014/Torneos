@@ -1,0 +1,40 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: torneos-backend
+  
+  # Configuración sin base de datos para testing básico
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.flywaydb.spring.boot.autoconfigure.FlywayAutoConfiguration
+
+# JWT Configuration
+jwt:
+  secret: mySecretKeyForTorneosAppThatIsLongEnoughForHS256AlgorithmAndMoreSecure
+  expiration: 3600000  # 1 hora
+  refresh-expiration: 86400000  # 24 horas
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.example.torneos: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
