@@ -1,0 +1,45 @@
+@startuml Frontend Architecture
+!theme plain
+
+package "Presentation Layer" {
+  [Tournament Components]
+  [User Components]
+  [Auth Components]
+  [Shared Components]
+}
+
+package "Service Layer" {
+  [Tournament Service]
+  [User Service]
+  [Auth Service]
+  [HTTP Client]
+}
+
+package "State Management" {
+  [Tournament State]
+  [User State]
+  [Auth State]
+}
+
+package "Core" {
+  [Guards]
+  [Interceptors]
+  [Models]
+}
+
+[Tournament Components] --> [Tournament Service]
+[User Components] --> [User Service]
+[Auth Components] --> [Auth Service]
+
+[Tournament Service] --> [HTTP Client]
+[User Service] --> [HTTP Client]
+[Auth Service] --> [HTTP Client]
+
+[Tournament Service] --> [Tournament State]
+[User Service] --> [User State]
+[Auth Service] --> [Auth State]
+
+[Guards] --> [Auth Service]
+[Interceptors] --> [HTTP Client]
+
+@enduml

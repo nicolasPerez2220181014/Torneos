@@ -1,0 +1,53 @@
+// Clases utilitarias para colores de texto
+.text-primary {
+  color: var(--color-text-primary) !important;
+}
+
+.text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+.text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+.text-body {
+  color: var(--color-text-body) !important;
+}
+
+.text-dark {
+  color: var(--color-text-dark) !important;
+}
+
+.text-white {
+  color: white !important;
+}
+
+.text-success {
+  color: var(--color-success) !important;
+}
+
+.text-danger {
+  color: var(--color-danger) !important;
+}
+
+.text-warning {
+  color: var(--color-warning) !important;
+}
+
+.text-info {
+  color: var(--color-info) !important;
+}
+
+// Clases para fondos
+.bg-card {
+  background-color: var(--color-bg-card) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-bg-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--color-bg-secondary) !important;
+}

@@ -150,9 +150,9 @@ import { PaginatedResponse } from '../../../core/models/api.models';
     .filters { margin-bottom: 20px; }
     .filter-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 10px; }
     .tournaments-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; margin-bottom: 20px; }
-    .tournament-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; background: white; }
+    .tournament-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; background: white; color: #333 !important; }
     .tournament-header { display: flex; justify-content: between; align-items: center; margin-bottom: 10px; }
-    .tournament-header h3 { margin: 0; flex: 1; }
+    .tournament-header h3 { margin: 0; flex: 1; color: #333 !important; }
     .status { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
     .status-draft { background: #f0f0f0; color: #666; }
     .status-published { background: #e3f2fd; color: #1976d2; }

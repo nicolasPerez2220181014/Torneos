@@ -1,7 +1,7 @@
-/Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/AuditLogServiceTest.java
-/Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/CategoryServiceTest.java
-/Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/JwtServiceTest.java
-/Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/StreamLinkControlServiceTest.java
-/Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/TournamentServiceTest.java
-/Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/StreamAccessServiceTest.java
-/Users/nicolas.perez/Pragma/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/UserServiceTest.java
+/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/StreamAccessServiceTest.java
+/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/TournamentServiceTest.java
+/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/AuditLogServiceTest.java
+/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/CategoryServiceTest.java
+/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/StreamLinkControlServiceTest.java
+/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/JwtServiceTest.java
+/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/src/test/java/com/example/torneos/application/service/UserServiceTest.java

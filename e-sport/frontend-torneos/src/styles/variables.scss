@@ -1,0 +1,121 @@
+// Variables SCSS para el sistema de diseño
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Z-index layers
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;
+
+// Grid system
+$grid-columns: 12;
+$grid-gutter: 1.5rem;
+
+// Component specific variables
+$navbar-height: 4rem;
+$sidebar-width: 16rem;
+$card-padding: 1.5rem;
+$button-height: 2.5rem;
+$input-height: 2.5rem;
+
+// Gaming theme colors
+$gaming-colors: (
+  'neon-blue': #00d4ff,
+  'neon-purple': #b347d9,
+  'neon-green': #39ff14,
+  'neon-pink': #ff1493,
+  'cyber-orange': #ff6b35,
+  'electric-yellow': #ffff00
+);
+
+// Status colors
+$status-colors: (
+  'online': #10b981,
+  'offline': #6b7280,
+  'away': #f59e0b,
+  'busy': #ef4444,
+  'streaming': #8b5cf6
+);
+
+// Tournament status colors
+$tournament-status: (
+  'upcoming': #3b82f6,
+  'live': #ef4444,
+  'finished': #6b7280,
+  'cancelled': #f59e0b
+);
+
+// Mixins útiles
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+@mixin card-hover {
+  transition: all var(--transition-normal);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@mixin neon-glow($color: #6366f1) {
+  box-shadow: 0 0 10px $color, 0 0 20px $color, 0 0 30px $color;
+}
+
+// Responsive mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
