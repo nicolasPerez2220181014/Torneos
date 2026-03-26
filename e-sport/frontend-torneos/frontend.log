@@ -15,24 +15,24 @@ chunk-JFWKV7XZ.js   | -                             | 187 bytes |
                     | Initial total                 | 124.85 kB
 
 Lazy chunk files    | Names                         |  Raw size
-chunk-XX2SLKLL.js   | tournament-detail-component   |  46.31 kB | 
+chunk-DCQPNCFH.js   | tournament-detail-component   |  46.30 kB | 
 chunk-NXL6WIYX.js   | ticket-purchase-component     |  25.20 kB | 
 chunk-BZK4KXTY.js   | tournaments-list-component    |  23.73 kB | 
-chunk-CUN3HI3U.js   | stream-viewer-component       |  23.11 kB | 
-chunk-4DMV2RKZ.js   | audit-logs-component          |  20.97 kB | 
+chunk-ZRVP2BFV.js   | stream-viewer-component       |  22.85 kB | 
+chunk-PJ2I67OC.js   | audit-logs-component          |  20.96 kB | 
 chunk-JTUDJEWO.js   | ticket-validation-component   |  20.83 kB | 
 chunk-UA3GPW7R.js   | tournament-form-component     |  19.91 kB | 
 chunk-BKRQCLK5.js   | user-form-component           |  17.59 kB | 
-chunk-O7MKTA6V.js   | executive-dashboard-component |  15.65 kB | 
+chunk-HJTXGX2J.js   | executive-dashboard-component |  15.04 kB | 
 chunk-C67Z3JJQ.js   | users-list-component          |  14.97 kB | 
 chunk-J2N5TBVM.js   | -                             |  13.83 kB | 
 chunk-N5DNW6BQ.js   | ticket-lookup-component       |  12.44 kB | 
-chunk-ZV7W56OJ.js   | my-tickets-component          |  10.26 kB | 
+chunk-B7HAHGCE.js   | my-tickets-component          |  10.22 kB | 
 chunk-XC4WPNQ2.js   | login-component               |   8.16 kB | 
-chunk-7BKKFLN6.js   | test-tournament-component     |   7.02 kB | 
+chunk-GSNDTGQ2.js   | test-tournament-component     |   7.01 kB | 
 ...and 12 more lazy chunks files. Use "--verbose" to show all the files.
 
-Application bundle generation complete. [4.223 seconds]
+Application bundle generation complete. [1.777 seconds]
 
 Watch mode enabled. Watching for file changes...
   ➜  Local:   http://localhost:4200/

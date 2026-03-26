@@ -86,6 +86,7 @@ com/example/torneos/infrastructure/persistence/repository/JpaTicketOrderReposito
 com/example/torneos/infrastructure/persistence/entity/TournamentEntity.class
 com/example/torneos/infrastructure/event/SpringDomainEventPublisher.class
 com/example/torneos/domain/repository/TicketSaleStageRepository.class
+com/example/torneos/application/service/AuthenticationService$UserInfo.class
 com/example/torneos/domain/event/DomainEventPublisher.class
 com/example/torneos/infrastructure/web/ratelimit/RateLimitInterceptor$RateLimitInfo.class
 com/example/torneos/domain/repository/TicketRepository.class

@@ -45,7 +45,10 @@ public class AuthenticationService {
             String.format("Usuario '%s' inició sesión", user.getEmail())
         );
 
-        return new AuthResponse(accessToken, refreshToken, user.getId(), user.getEmail(), user.getRole().name());
+        UserInfo userInfo = new UserInfo(user.getId(), user.getEmail(), user.getFullName(), user.getRole().name(), 
+            user.getCreatedAt() != null ? user.getCreatedAt().toString() : "",
+            user.getUpdatedAt() != null ? user.getUpdatedAt().toString() : "");
+        return new AuthResponse(accessToken, refreshToken, "Bearer", 3600, userInfo);
     }
 
     public RefreshTokenService.AuthResponse refreshToken(String refreshToken) {
@@ -67,25 +70,50 @@ public class AuthenticationService {
                 .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
     }
 
+    public static class UserInfo {
+        private final UUID id;
+        private final String email;
+        private final String fullName;
+        private final String role;
+        private final String createdAt;
+        private final String updatedAt;
+
+        public UserInfo(UUID id, String email, String fullName, String role, String createdAt, String updatedAt) {
+            this.id = id;
+            this.email = email;
+            this.fullName = fullName;
+            this.role = role;
+            this.createdAt = createdAt;
+            this.updatedAt = updatedAt;
+        }
+
+        public UUID getId() { return id; }
+        public String getEmail() { return email; }
+        public String getFullName() { return fullName; }
+        public String getRole() { return role; }
+        public String getCreatedAt() { return createdAt; }
+        public String getUpdatedAt() { return updatedAt; }
+    }
+
     public static class AuthResponse {
         private final String accessToken;
         private final String refreshToken;
-        private final UUID userId;
-        private final String email;
-        private final String role;
+        private final String tokenType;
+        private final int expiresIn;
+        private final UserInfo user;
 
-        public AuthResponse(String accessToken, String refreshToken, UUID userId, String email, String role) {
+        public AuthResponse(String accessToken, String refreshToken, String tokenType, int expiresIn, UserInfo user) {
             this.accessToken = accessToken;
             this.refreshToken = refreshToken;
-            this.userId = userId;
-            this.email = email;
-            this.role = role;
+            this.tokenType = tokenType;
+            this.expiresIn = expiresIn;
+            this.user = user;
         }
 
         public String getAccessToken() { return accessToken; }
         public String getRefreshToken() { return refreshToken; }
-        public UUID getUserId() { return userId; }
-        public String getEmail() { return email; }
-        public String getRole() { return role; }
+        public String getTokenType() { return tokenType; }
+        public int getExpiresIn() { return expiresIn; }
+        public UserInfo getUser() { return user; }
     }
 }
