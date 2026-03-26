@@ -1,0 +1,47 @@
+# Variables de Entorno por Ambiente
+# Backend Torneos
+
+## Development
+# .env.dev
+SPRING_PROFILES_ACTIVE=dev
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=torneo_dev
+DB_USER=postgres
+DB_PASSWORD=dev_password
+JWT_SECRET=dev-secret-key-change-in-production
+JWT_EXPIRATION=3600000
+
+## QA
+# .env.qa
+SPRING_PROFILES_ACTIVE=qa
+DB_HOST=qa-db.example.com
+DB_PORT=5432
+DB_NAME=torneo_qa
+DB_USER=postgres
+DB_PASSWORD=${QA_DB_PASSWORD}
+JWT_SECRET=${QA_JWT_SECRET}
+JWT_EXPIRATION=3600000
+
+## Production
+# .env.prod
+SPRING_PROFILES_ACTIVE=prod
+DB_HOST=${PROD_DB_HOST}
+DB_PORT=5432
+DB_NAME=torneo_prod
+DB_USER=postgres
+DB_PASSWORD=${PROD_DB_PASSWORD}
+JWT_SECRET=${PROD_JWT_SECRET}
+JWT_EXPIRATION=3600000
+
+## AWS Secrets Manager (Production)
+# Usar AWS Secrets Manager para variables sensibles
+# torneos/db-host
+# torneos/db-password
+# torneos/jwt-secret
+
+## Azure Key Vault (Production)
+# Usar Azure Key Vault para variables sensibles
+# torneos-db-host
+# torneos-db-password
+# torneos-jwt-secret

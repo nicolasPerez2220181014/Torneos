@@ -2,5 +2,37 @@
 > frontend-torneos@0.0.0 start
 > ng serve
 
-? Port 4200 is already in use.
-Would you like to use a different port? (Y/n) [46D[46C
+- Building...
+
+Initial chunk files | Names                         |  Raw size
+polyfills.js        | polyfills                     |  88.09 kB | 
+main.js             | main                          |  29.69 kB | 
+chunk-IZ454X33.js   | -                             |   4.23 kB | 
+styles.css          | styles                        |   1.74 kB | 
+chunk-SHAOKUVO.js   | -                             | 938 bytes | 
+chunk-JFWKV7XZ.js   | -                             | 187 bytes | 
+
+                    | Initial total                 | 124.85 kB
+
+Lazy chunk files    | Names                         |  Raw size
+chunk-XX2SLKLL.js   | tournament-detail-component   |  46.31 kB | 
+chunk-NXL6WIYX.js   | ticket-purchase-component     |  25.20 kB | 
+chunk-BZK4KXTY.js   | tournaments-list-component    |  23.73 kB | 
+chunk-CUN3HI3U.js   | stream-viewer-component       |  23.11 kB | 
+chunk-4DMV2RKZ.js   | audit-logs-component          |  20.97 kB | 
+chunk-JTUDJEWO.js   | ticket-validation-component   |  20.83 kB | 
+chunk-UA3GPW7R.js   | tournament-form-component     |  19.91 kB | 
+chunk-BKRQCLK5.js   | user-form-component           |  17.59 kB | 
+chunk-O7MKTA6V.js   | executive-dashboard-component |  15.65 kB | 
+chunk-C67Z3JJQ.js   | users-list-component          |  14.97 kB | 
+chunk-J2N5TBVM.js   | -                             |  13.83 kB | 
+chunk-N5DNW6BQ.js   | ticket-lookup-component       |  12.44 kB | 
+chunk-ZV7W56OJ.js   | my-tickets-component          |  10.26 kB | 
+chunk-XC4WPNQ2.js   | login-component               |   8.16 kB | 
+chunk-7BKKFLN6.js   | test-tournament-component     |   7.02 kB | 
+...and 12 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [4.223 seconds]
+
+Watch mode enabled. Watching for file changes...
+  ➜  Local:   http://localhost:4200/

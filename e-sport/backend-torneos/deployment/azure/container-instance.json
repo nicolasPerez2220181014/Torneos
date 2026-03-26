@@ -1,0 +1,105 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerName": {
+      "type": "string",
+      "defaultValue": "torneos-backend"
+    },
+    "imageName": {
+      "type": "string",
+      "defaultValue": "{DOCKER_USERNAME}/torneos-backend:latest"
+    },
+    "dbHost": {
+      "type": "securestring"
+    },
+    "dbPassword": {
+      "type": "securestring"
+    },
+    "jwtSecret": {
+      "type": "securestring"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2021-09-01",
+      "name": "[parameters('containerName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[parameters('containerName')]",
+            "properties": {
+              "image": "[parameters('imageName')]",
+              "ports": [
+                {
+                  "port": 8081,
+                  "protocol": "TCP"
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "SPRING_PROFILES_ACTIVE",
+                  "value": "prod"
+                },
+                {
+                  "name": "DB_HOST",
+                  "secureValue": "[parameters('dbHost')]"
+                },
+                {
+                  "name": "DB_PORT",
+                  "value": "5432"
+                },
+                {
+                  "name": "DB_NAME",
+                  "value": "torneo"
+                },
+                {
+                  "name": "DB_USER",
+                  "value": "postgres"
+                },
+                {
+                  "name": "DB_PASSWORD",
+                  "secureValue": "[parameters('dbPassword')]"
+                },
+                {
+                  "name": "JWT_SECRET",
+                  "secureValue": "[parameters('jwtSecret')]"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGB": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": 8081,
+              "protocol": "TCP"
+            }
+          ],
+          "dnsNameLabel": "[parameters('containerName')]"
+        },
+        "restartPolicy": "Always"
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', parameters('containerName'))).ipAddress.ip]"
+    },
+    "containerFQDN": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', parameters('containerName'))).ipAddress.fqdn]"
+    }
+  }
+}

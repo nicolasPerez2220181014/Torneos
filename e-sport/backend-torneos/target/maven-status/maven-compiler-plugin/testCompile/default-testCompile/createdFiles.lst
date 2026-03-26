@@ -1,7 +1,14 @@
+com/example/torneos/integration/TournamentServiceIntegrationTest.class
 com/example/torneos/application/service/AuditLogServiceTest.class
-com/example/torneos/application/service/JwtServiceTest.class
 com/example/torneos/application/service/UserServiceTest.class
-com/example/torneos/application/service/CategoryServiceTest.class
+com/example/torneos/integration/TicketSaleStageServiceIntegrationTest.class
+com/example/torneos/application/service/TicketServiceTest.class
+com/example/torneos/integration/TournamentAdminServiceIntegrationTest.class
 com/example/torneos/application/service/TournamentServiceTest.class
 com/example/torneos/application/service/StreamLinkControlServiceTest.class
+com/example/torneos/integration/TicketServiceIntegrationTest.class
+com/example/torneos/integration/BaseIntegrationTest.class
+com/example/torneos/application/service/JwtServiceTest.class
+com/example/torneos/application/service/CategoryServiceTest.class
+com/example/torneos/integration/StreamAccessServiceIntegrationTest.class
 com/example/torneos/application/service/StreamAccessServiceTest.class

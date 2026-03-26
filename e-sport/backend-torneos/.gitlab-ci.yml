@@ -1,0 +1,66 @@
+stages:
+  - build
+  - test
+  - security
+  - docker
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+  DOCKER_IMAGE: $CI_REGISTRY_IMAGE
+  DOCKER_TAG: $CI_COMMIT_SHORT_SHA
+
+cache:
+  paths:
+    - .m2/repository
+    - target/
+
+build:
+  stage: build
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn clean compile -DskipTests
+    - mvn package -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 1 day
+
+test:
+  stage: test
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn test
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+
+security-scan:
+  stage: security
+  image: aquasec/trivy:latest
+  script:
+    - trivy fs --exit-code 0 --severity HIGH,CRITICAL .
+  allow_failure: true
+
+docker-build:
+  stage: docker
+  image: docker:24
+  services:
+    - docker:24-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - |
+      if [ "$CI_COMMIT_TAG" != "" ]; then
+        VERSION=$CI_COMMIT_TAG
+      else
+        VERSION=$(date +%Y%m%d)-$CI_COMMIT_SHORT_SHA
+      fi
+    - docker build -t $DOCKER_IMAGE:$VERSION -t $DOCKER_IMAGE:latest .
+    - docker push $DOCKER_IMAGE:$VERSION
+    - docker push $DOCKER_IMAGE:latest
+  only:
+    - main
+    - develop
+    - tags

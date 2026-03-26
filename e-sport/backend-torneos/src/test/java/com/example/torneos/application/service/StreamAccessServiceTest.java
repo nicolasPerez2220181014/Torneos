@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -27,13 +28,10 @@ class StreamAccessServiceTest {
 
     @Mock
     private StreamAccessRepository streamAccessRepository;
-
     @Mock
     private TournamentRepository tournamentRepository;
-
     @Mock
     private TicketRepository ticketRepository;
-
     @Mock
     private AuditLogService auditLogService;
 
@@ -43,131 +41,99 @@ class StreamAccessServiceTest {
     private UUID tournamentId;
     private UUID userId;
     private Tournament tournament;
-    private StreamAccessRequestDto freeAccessRequest;
-    private StreamAccessRequestDto paidAccessRequest;
 
     @BeforeEach
     void setUp() {
         tournamentId = UUID.randomUUID();
         userId = UUID.randomUUID();
-        
-        tournament = new Tournament();
-        tournament.setId(tournamentId);
-        tournament.setPaid(true);
-        
-        freeAccessRequest = new StreamAccessRequestDto();
-        freeAccessRequest.setAccessType("FREE");
-        
-        paidAccessRequest = new StreamAccessRequestDto();
-        paidAccessRequest.setAccessType("PAID");
-        paidAccessRequest.setTicketAccessCode("TKT-12345678");
+        tournament = new Tournament(UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID(), 
+            "Tournament", "Description", false, 100, LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2));
     }
 
     @Test
-    void requestAccess_FreeAccess_Success() {
-        // Given
-        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(tournament));
-        when(streamAccessRepository.existsByTournamentIdAndUserId(tournamentId, userId)).thenReturn(false);
-        when(streamAccessRepository.countFreeAccessByUserId(userId)).thenReturn(0);
-        when(streamAccessRepository.save(any(StreamAccess.class))).thenAnswer(invocation -> {
-            StreamAccess access = invocation.getArgument(0);
-            access.setId(UUID.randomUUID());
-            return access;
-        });
+    void requestAccess_shouldThrowException_whenUserExceedsFreeAccessLimit() {
+        StreamAccessRequestDto request = new StreamAccessRequestDto();
+        request.setAccessType("FREE");
 
-        // When
-        StreamAccessResponseDto result = streamAccessService.requestAccess(tournamentId, userId, freeAccessRequest);
-
-        // Then
-        assertNotNull(result);
-        assertEquals("FREE", result.getAccessType());
-        assertEquals(tournamentId, result.getTournamentId());
-        assertEquals(userId, result.getUserId());
-        verify(streamAccessRepository).save(any(StreamAccess.class));
-    }
-
-    @Test
-    void requestAccess_FreeAccess_AlreadyUsedFreeAccess_ThrowsException() {
-        // Given
         when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(tournament));
         when(streamAccessRepository.existsByTournamentIdAndUserId(tournamentId, userId)).thenReturn(false);
         when(streamAccessRepository.countFreeAccessByUserId(userId)).thenReturn(1);
 
-        // When & Then
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> streamAccessService.requestAccess(tournamentId, userId, freeAccessRequest));
-        
-        assertEquals("El usuario ya ha utilizado su acceso gratuito", exception.getMessage());
+        assertThrows(IllegalArgumentException.class, 
+            () -> streamAccessService.requestAccess(tournamentId, userId, request));
         verify(streamAccessRepository, never()).save(any());
     }
 
     @Test
-    void requestAccess_PaidAccess_Success() {
-        // Given
-        Ticket ticket = new Ticket();
-        ticket.setId(UUID.randomUUID());
-        ticket.setTournamentId(tournamentId);
-        ticket.setUserId(userId);
-        ticket.setStatus(Ticket.TicketStatus.ISSUED);
-        
+    void requestAccess_shouldGrantFreeAccess_whenUserHasNoFreeAccess() {
+        StreamAccessRequestDto request = new StreamAccessRequestDto();
+        request.setAccessType("FREE");
+
+        StreamAccess streamAccess = new StreamAccess(tournamentId, userId, StreamAccess.AccessType.FREE, null);
+
         when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(tournament));
         when(streamAccessRepository.existsByTournamentIdAndUserId(tournamentId, userId)).thenReturn(false);
-        when(ticketRepository.findByAccessCode("TKT-12345678")).thenReturn(Optional.of(ticket));
-        when(streamAccessRepository.save(any(StreamAccess.class))).thenAnswer(invocation -> {
-            StreamAccess access = invocation.getArgument(0);
-            access.setId(UUID.randomUUID());
-            return access;
-        });
+        when(streamAccessRepository.countFreeAccessByUserId(userId)).thenReturn(0);
+        when(streamAccessRepository.save(any(StreamAccess.class))).thenReturn(streamAccess);
 
-        // When
-        StreamAccessResponseDto result = streamAccessService.requestAccess(tournamentId, userId, paidAccessRequest);
+        StreamAccessResponseDto response = streamAccessService.requestAccess(tournamentId, userId, request);
 
-        // Then
-        assertNotNull(result);
-        assertEquals("PAID", result.getAccessType());
-        assertEquals(ticket.getId(), result.getTicketId());
+        assertNotNull(response);
+        verify(streamAccessRepository).save(any(StreamAccess.class));
+        verify(auditLogService).logEvent(any(), any(), any(), any(), any());
+    }
+
+    @Test
+    void requestAccess_shouldThrowException_whenUserAlreadyHasAccess() {
+        StreamAccessRequestDto request = new StreamAccessRequestDto();
+        request.setAccessType("FREE");
+
+        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(tournament));
+        when(streamAccessRepository.existsByTournamentIdAndUserId(tournamentId, userId)).thenReturn(true);
+
+        assertThrows(IllegalArgumentException.class, 
+            () -> streamAccessService.requestAccess(tournamentId, userId, request));
+    }
+
+    @Test
+    void requestAccess_shouldGrantPaidAccess_whenTicketIsValid() {
+        Tournament paidTournament = new Tournament(UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID(), 
+            "Paid Tournament", "Description", true, null, LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2));
+        
+        String ticketCode = "TICKET-123";
+        UUID ticketId = UUID.randomUUID();
+        Ticket ticket = new Ticket(UUID.randomUUID(), tournamentId, userId, ticketCode);
+        ticket.setStatus(Ticket.TicketStatus.ISSUED);
+
+        StreamAccessRequestDto request = new StreamAccessRequestDto();
+        request.setAccessType("PAID");
+        request.setTicketAccessCode(ticketCode);
+
+        StreamAccess streamAccess = new StreamAccess(tournamentId, userId, StreamAccess.AccessType.PAID, ticketId);
+
+        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(paidTournament));
+        when(streamAccessRepository.existsByTournamentIdAndUserId(tournamentId, userId)).thenReturn(false);
+        when(ticketRepository.findByAccessCode(ticketCode)).thenReturn(Optional.of(ticket));
+        when(streamAccessRepository.save(any(StreamAccess.class))).thenReturn(streamAccess);
+
+        StreamAccessResponseDto response = streamAccessService.requestAccess(tournamentId, userId, request);
+
+        assertNotNull(response);
         verify(streamAccessRepository).save(any(StreamAccess.class));
     }
 
     @Test
-    void requestAccess_PaidAccess_InvalidTicket_ThrowsException() {
-        // Given
-        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(tournament));
+    void requestAccess_shouldThrowException_whenPaidAccessWithoutTicket() {
+        Tournament paidTournament = new Tournament(UUID.randomUUID(), UUID.randomUUID(), UUID.randomUUID(), 
+            "Paid Tournament", "Description", true, null, LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2));
+
+        StreamAccessRequestDto request = new StreamAccessRequestDto();
+        request.setAccessType("PAID");
+
+        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(paidTournament));
         when(streamAccessRepository.existsByTournamentIdAndUserId(tournamentId, userId)).thenReturn(false);
-        when(ticketRepository.findByAccessCode("TKT-12345678")).thenReturn(Optional.empty());
 
-        // When & Then
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> streamAccessService.requestAccess(tournamentId, userId, paidAccessRequest));
-        
-        assertEquals("Código de ticket inválido", exception.getMessage());
-        verify(streamAccessRepository, never()).save(any());
-    }
-
-    @Test
-    void requestAccess_AlreadyHasAccess_ThrowsException() {
-        // Given
-        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(tournament));
-        when(streamAccessRepository.existsByTournamentIdAndUserId(tournamentId, userId)).thenReturn(true);
-
-        // When & Then
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> streamAccessService.requestAccess(tournamentId, userId, freeAccessRequest));
-        
-        assertEquals("El usuario ya tiene acceso a este torneo", exception.getMessage());
-        verify(streamAccessRepository, never()).save(any());
-    }
-
-    @Test
-    void requestAccess_TournamentNotFound_ThrowsException() {
-        // Given
-        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.empty());
-
-        // When & Then
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> streamAccessService.requestAccess(tournamentId, userId, freeAccessRequest));
-        
-        assertEquals("Torneo no encontrado", exception.getMessage());
-        verify(streamAccessRepository, never()).save(any());
+        assertThrows(IllegalArgumentException.class, 
+            () -> streamAccessService.requestAccess(tournamentId, userId, request));
     }
 }

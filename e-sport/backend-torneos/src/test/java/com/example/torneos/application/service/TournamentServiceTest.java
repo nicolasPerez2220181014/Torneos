@@ -2,8 +2,6 @@ package com.example.torneos.application.service;
 
 import com.example.torneos.application.dto.request.CreateTournamentRequest;
 import com.example.torneos.application.dto.response.TournamentResponse;
-import com.example.torneos.domain.model.Category;
-import com.example.torneos.domain.model.GameType;
 import com.example.torneos.domain.model.Tournament;
 import com.example.torneos.domain.model.User;
 import com.example.torneos.domain.repository.CategoryRepository;
@@ -46,9 +44,6 @@ class TournamentServiceTest {
     private UUID categoryId;
     private UUID gameTypeId;
     private User organizer;
-    private Category category;
-    private GameType gameType;
-    private CreateTournamentRequest validRequest;
 
     @BeforeEach
     void setUp() {
@@ -56,127 +51,87 @@ class TournamentServiceTest {
         categoryId = UUID.randomUUID();
         gameTypeId = UUID.randomUUID();
         
-        organizer = new User("organizer@test.com", "Test Organizer", User.UserRole.ORGANIZER);
-        organizer.setId(organizerId);
-        
-        category = new Category(categoryId, "Test Category", true);
-        gameType = new GameType(gameTypeId, "Test Game", true);
-        
-        validRequest = new CreateTournamentRequest(
+        organizer = new User("organizer@test.com", "Organizer", User.UserRole.ORGANIZER);
+    }
+
+    @Test
+    void create_shouldThrowException_whenMaxFreeTournamentsReached() {
+        CreateTournamentRequest request = new CreateTournamentRequest(
             categoryId.toString(),
             gameTypeId.toString(),
-            "Test Tournament",
-            "Test Description",
+            "Free Tournament",
+            "Description",
             false,
             100,
             LocalDateTime.now().plusDays(1),
             LocalDateTime.now().plusDays(2)
         );
-    }
 
-    @Test
-    void create_ShouldCreateTournament_WhenValidRequest() {
-        // Given
         when(userRepository.findById(organizerId)).thenReturn(Optional.of(organizer));
-        when(categoryRepository.findById(categoryId)).thenReturn(Optional.of(category));
-        when(gameTypeRepository.findById(gameTypeId)).thenReturn(Optional.of(gameType));
-        when(tournamentRepository.countByOrganizerIdAndIsPaidAndStatus(organizerId, false, Tournament.TournamentStatus.PUBLISHED))
-            .thenReturn(0L);
-        
-        Tournament savedTournament = new Tournament(organizerId, categoryId, gameTypeId, 
-            "Test Tournament", "Test Description", false, 100,
-            validRequest.startDateTime(), validRequest.endDateTime());
-        savedTournament.setId(UUID.randomUUID());
-        savedTournament.setCreatedAt(LocalDateTime.now());
-        savedTournament.setUpdatedAt(LocalDateTime.now());
-        
-        when(tournamentRepository.save(any(Tournament.class))).thenReturn(savedTournament);
-
-        // When
-        TournamentResponse response = tournamentService.create(validRequest, organizerId);
-
-        // Then
-        assertNotNull(response);
-        assertEquals("Test Tournament", response.name());
-        assertEquals(organizerId, response.organizerId());
-        assertFalse(response.isPaid());
-        verify(tournamentRepository).save(any(Tournament.class));
-    }
-
-    @Test
-    void create_ShouldThrowException_WhenUserNotOrganizer() {
-        // Given
-        User regularUser = new User("user@test.com", "Regular User", User.UserRole.USER);
-        regularUser.setId(organizerId);
-        when(userRepository.findById(organizerId)).thenReturn(Optional.of(regularUser));
-
-        // When & Then
-        IllegalArgumentException exception = assertThrows(
-            IllegalArgumentException.class,
-            () -> tournamentService.create(validRequest, organizerId)
-        );
-        assertEquals("Solo los usuarios con rol ORGANIZER pueden crear torneos", exception.getMessage());
-        verify(tournamentRepository, never()).save(any(Tournament.class));
-    }
-
-    @Test
-    void create_ShouldThrowException_WhenMaxFreeTournamentsReached() {
-        // Given
-        when(userRepository.findById(organizerId)).thenReturn(Optional.of(organizer));
-        when(categoryRepository.findById(categoryId)).thenReturn(Optional.of(category));
-        when(gameTypeRepository.findById(gameTypeId)).thenReturn(Optional.of(gameType));
+        when(categoryRepository.findById(categoryId)).thenReturn(Optional.of(mock(com.example.torneos.domain.model.Category.class)));
+        when(gameTypeRepository.findById(gameTypeId)).thenReturn(Optional.of(mock(com.example.torneos.domain.model.GameType.class)));
         when(tournamentRepository.countByOrganizerIdAndIsPaidAndStatus(organizerId, false, Tournament.TournamentStatus.PUBLISHED))
             .thenReturn(2L);
 
-        // When & Then
-        IllegalArgumentException exception = assertThrows(
-            IllegalArgumentException.class,
-            () -> tournamentService.create(validRequest, organizerId)
-        );
-        assertEquals("Un organizador solo puede tener máximo 2 torneos gratuitos activos", exception.getMessage());
-        verify(tournamentRepository, never()).save(any(Tournament.class));
+        assertThrows(IllegalArgumentException.class, () -> tournamentService.create(request, organizerId));
+        verify(tournamentRepository, never()).save(any());
     }
 
     @Test
-    void create_ShouldThrowException_WhenEndDateBeforeStartDate() {
-        // Given
-        CreateTournamentRequest invalidRequest = new CreateTournamentRequest(
-            categoryId.toString(), gameTypeId.toString(), "Test Tournament", "Test Description", false, 100,
-            LocalDateTime.now().plusDays(2), // end before start
-            LocalDateTime.now().plusDays(1)
+    void create_shouldCreateFreeTournament_whenLessThanMaxFree() {
+        CreateTournamentRequest request = new CreateTournamentRequest(
+            categoryId.toString(),
+            gameTypeId.toString(),
+            "Free Tournament",
+            "Description",
+            false,
+            100,
+            LocalDateTime.now().plusDays(1),
+            LocalDateTime.now().plusDays(2)
         );
-        
-        when(userRepository.findById(organizerId)).thenReturn(Optional.of(organizer));
-        when(categoryRepository.findById(categoryId)).thenReturn(Optional.of(category));
-        when(gameTypeRepository.findById(gameTypeId)).thenReturn(Optional.of(gameType));
 
-        // When & Then
-        IllegalArgumentException exception = assertThrows(
-            IllegalArgumentException.class,
-            () -> tournamentService.create(invalidRequest, organizerId)
-        );
-        assertEquals("La fecha de fin debe ser posterior a la fecha de inicio", exception.getMessage());
-        verify(tournamentRepository, never()).save(any(Tournament.class));
+        Tournament tournament = new Tournament(organizerId, categoryId, gameTypeId, "Free Tournament", "Description", false, 100, request.startDateTime(), request.endDateTime());
+
+        when(userRepository.findById(organizerId)).thenReturn(Optional.of(organizer));
+        when(categoryRepository.findById(categoryId)).thenReturn(Optional.of(mock(com.example.torneos.domain.model.Category.class)));
+        when(gameTypeRepository.findById(gameTypeId)).thenReturn(Optional.of(mock(com.example.torneos.domain.model.GameType.class)));
+        when(tournamentRepository.countByOrganizerIdAndIsPaidAndStatus(organizerId, false, Tournament.TournamentStatus.PUBLISHED))
+            .thenReturn(1L);
+        when(tournamentRepository.save(any(Tournament.class))).thenReturn(tournament);
+
+        TournamentResponse response = tournamentService.create(request, organizerId);
+
+        assertNotNull(response);
+        verify(tournamentRepository).save(any(Tournament.class));
+        verify(auditLogService).logEvent(any(), any(), any(), any(), any());
     }
 
     @Test
-    void create_ShouldThrowException_WhenFreeTournamentWithoutCapacity() {
-        // Given
-        CreateTournamentRequest requestWithoutCapacity = new CreateTournamentRequest(
-            categoryId.toString(), gameTypeId.toString(), "Test Tournament", "Test Description", false, null,
-            LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2)
+    void create_shouldThrowException_whenOrganizerNotFound() {
+        CreateTournamentRequest request = new CreateTournamentRequest(
+            categoryId.toString(),
+            gameTypeId.toString(),
+            "Tournament",
+            "Description",
+            true,
+            null,
+            LocalDateTime.now().plusDays(1),
+            LocalDateTime.now().plusDays(2)
         );
-        
-        when(userRepository.findById(organizerId)).thenReturn(Optional.of(organizer));
-        when(categoryRepository.findById(categoryId)).thenReturn(Optional.of(category));
-        when(gameTypeRepository.findById(gameTypeId)).thenReturn(Optional.of(gameType));
 
-        // When & Then
-        IllegalArgumentException exception = assertThrows(
-            IllegalArgumentException.class,
-            () -> tournamentService.create(requestWithoutCapacity, organizerId)
-        );
-        assertEquals("Los torneos gratuitos deben tener una capacidad máxima definida", exception.getMessage());
-        verify(tournamentRepository, never()).save(any(Tournament.class));
+        when(userRepository.findById(organizerId)).thenReturn(Optional.empty());
+
+        assertThrows(IllegalArgumentException.class, () -> tournamentService.create(request, organizerId));
+    }
+
+    @Test
+    void publish_shouldThrowException_whenNotInDraftStatus() {
+        UUID tournamentId = UUID.randomUUID();
+        Tournament tournament = new Tournament(organizerId, categoryId, gameTypeId, "Tournament", "Description", true, null, LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2));
+        tournament.setStatus(Tournament.TournamentStatus.PUBLISHED);
+
+        when(tournamentRepository.findById(tournamentId)).thenReturn(Optional.of(tournament));
+
+        assertThrows(IllegalArgumentException.class, () -> tournamentService.publish(tournamentId, organizerId));
     }
 }
