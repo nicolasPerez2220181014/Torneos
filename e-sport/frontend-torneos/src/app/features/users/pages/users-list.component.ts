@@ -109,31 +109,33 @@ import { PaginatedResponse } from '../../../core/models/api.models';
     </div>
   `,
   styles: [`
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    .filters { margin-bottom: 20px; }
-    .filter-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-    .users-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; margin-bottom: 20px; }
-    .user-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; background: white; }
-    .user-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-    .user-header h3 { margin: 0; }
-    .role { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
-    .role-user { background: #e8f5e8; color: #2e7d32; }
-    .role-organizer { background: #e3f2fd; color: #1976d2; }
-    .role-subadmin { background: #f3e5f5; color: #7b1fa2; }
-    .user-info { margin-bottom: 15px; }
-    .info-item { margin-bottom: 8px; font-size: 14px; }
-    .user-actions { display: flex; gap: 10px; }
-    .pagination { display: flex; justify-content: center; align-items: center; gap: 20px; }
-    .page-info { font-size: 14px; color: #666; }
-    .loading, .error { text-align: center; padding: 40px; }
-    .error { color: #d32f2f; }
-    .btn { padding: 8px 16px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; background: white; }
-    .btn-primary { background: #1976d2; color: white; border-color: #1976d2; }
-    .btn-outline { background: white; }
-    .btn-sm { padding: 4px 8px; font-size: 12px; }
-    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .form-control { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-xl); }
+    .header h2 { font-size: 1.4rem; }
+    .filters { margin-bottom: var(--sp-xl); }
+    .filter-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--sp-sm); }
+    .users-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--sp-lg); margin-bottom: var(--sp-xl); }
+    .user-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-xl);
+      transition: all 0.2s var(--ease);
+    }
+    .user-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); }
+    .user-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-lg); }
+    .user-header h3 { margin: 0; font-size: 1.05rem; color: var(--text-primary); }
+    .role { padding: 3px 10px; border-radius: var(--radius-full); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .role-user { background: var(--success-soft); color: var(--success); }
+    .role-organizer { background: var(--info-soft); color: var(--info); }
+    .role-subadmin { background: var(--accent-soft); color: var(--accent); }
+    .user-info { margin-bottom: var(--sp-lg); }
+    .info-item { margin-bottom: var(--sp-sm); font-size: 0.8rem; color: var(--text-secondary); }
+    .info-item strong { color: var(--text-muted); font-weight: 500; }
+    .user-actions { display: flex; gap: var(--sp-sm); padding-top: var(--sp-lg); border-top: 1px solid var(--border); }
+    @media (max-width: 768px) {
+      .filter-row { grid-template-columns: 1fr; }
+      .users-grid { grid-template-columns: 1fr; }
+    }
   `]
 })
 export class UsersListComponent implements OnInit {

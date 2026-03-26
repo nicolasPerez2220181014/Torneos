@@ -104,110 +104,87 @@ export interface MasterItem {
     </div>
   `,
   styles: [`
-    .master-crud {
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+    .master-crud { max-width: 1200px; margin: 0 auto; padding: var(--sp-xl); }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-xl); }
+    .header h2 { font-size: 1.4rem; }
     .form-card {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: var(--sp-xl);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--sp-xl);
     }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-control {
-      width: 100%;
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    .form-actions {
-      display: flex;
-      gap: 10px;
-    }
+    .form-card h3 { font-size: 1rem; margin: 0 0 var(--sp-lg) 0; }
+    .form-group { margin-bottom: var(--sp-lg); }
+    .form-actions { display: flex; gap: var(--sp-sm); }
     .btn-primary {
-      background: #007bff;
-      color: white;
+      background: var(--accent);
+      color: #fff;
       border: none;
       padding: 8px 16px;
-      border-radius: 4px;
+      border-radius: var(--radius-md);
       cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.15s var(--ease);
     }
-    .btn-primary:disabled {
-      background: #6c757d;
-      cursor: not-allowed;
-    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
     .btn-secondary {
-      background: #6c757d;
-      color: white;
-      border: none;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
       padding: 8px 16px;
-      border-radius: 4px;
+      border-radius: var(--radius-md);
       cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      transition: all 0.15s var(--ease);
     }
+    .btn-secondary:hover { border-color: var(--border-hover); color: var(--text-primary); }
     .btn-edit {
-      background: #28a745;
-      color: white;
-      border: none;
-      padding: 4px 8px;
-      border-radius: 4px;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
       cursor: pointer;
-      font-size: 12px;
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      transition: all 0.15s var(--ease);
     }
-    .loading {
-      color: #007bff;
-      font-weight: bold;
-      text-align: center;
-      padding: 20px;
-    }
-    .error {
-      color: #dc3545;
-      background: #f8d7da;
-      padding: 10px;
-      border-radius: 4px;
-      margin-bottom: 20px;
-    }
+    .btn-edit:hover { background: var(--accent-soft); }
+    .btn-edit:disabled { opacity: 0.4; cursor: not-allowed; }
     .items-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-md);
     }
     .item-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 15px;
-      background: white;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: all 0.2s var(--ease);
     }
-    .item-content h4 {
-      margin: 0 0 5px 0;
-    }
+    .item-card:hover { border-color: var(--border-hover); }
+    .item-content h4 { margin: 0 0 var(--sp-xs) 0; font-size: 0.95rem; color: var(--text-primary); }
     .status {
       padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: bold;
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .status.active {
-      background: #d4edda;
-      color: #155724;
-    }
-    .status.inactive {
-      background: #f8d7da;
-      color: #721c24;
-    }
+    .status.active { background: var(--success-soft); color: var(--success); }
+    .status.inactive { background: var(--danger-soft); color: var(--danger); }
+    @media (max-width: 768px) { .items-grid { grid-template-columns: 1fr; } }
   `]
 })
 export class MasterCrudComponent {

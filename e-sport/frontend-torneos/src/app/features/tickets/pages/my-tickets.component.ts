@@ -53,22 +53,37 @@ import { Router } from '@angular/router';
     </div>
   `,
   styles: [`
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    .no-tickets { text-align: center; padding: 40px; }
-    .tickets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }
-    .ticket-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; background: white; }
-    .ticket-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
-    .status { padding: 4px 8px; border-radius: 4px; font-size: 12px; background: #e8f5e8; color: #2e7d32; }
-    .ticket-details { margin-bottom: 15px; }
-    .detail-item { margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-    .btn-copy { background: none; border: none; cursor: pointer; }
-    .ticket-actions { display: flex; gap: 10px; }
-    .summary { background: #f5f5f5; padding: 20px; border-radius: 8px; margin-top: 20px; }
-    .btn { padding: 8px 16px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; background: white; }
-    .btn-primary { background: #1976d2; color: white; border-color: #1976d2; }
-    .btn-outline { background: white; }
-    .btn-sm { padding: 4px 8px; font-size: 12px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-xl); }
+    .header h2 { font-size: 1.4rem; }
+    .no-tickets { text-align: center; padding: var(--sp-3xl); color: var(--text-muted); }
+    .no-tickets p { margin-bottom: var(--sp-lg); }
+    .tickets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: var(--sp-lg); }
+    .ticket-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-xl);
+      transition: all 0.2s var(--ease);
+    }
+    .ticket-card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); }
+    .ticket-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--sp-lg); }
+    .ticket-header h3 { margin: 0; font-size: 1.05rem; color: var(--text-primary); }
+    .status { padding: 3px 10px; border-radius: var(--radius-full); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; background: var(--success-soft); color: var(--success); }
+    .ticket-details { margin-bottom: var(--sp-lg); }
+    .detail-item { margin-bottom: var(--sp-sm); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-secondary); }
+    .detail-item strong { color: var(--text-muted); font-weight: 500; }
+    .btn-copy { background: none; border: none; cursor: pointer; color: var(--accent); font-size: 0.8rem; }
+    .ticket-actions { display: flex; gap: var(--sp-sm); padding-top: var(--sp-lg); border-top: 1px solid var(--border); }
+    .summary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: var(--sp-xl);
+      border-radius: var(--radius-lg);
+      margin-top: var(--sp-xl);
+    }
+    .summary h4 { margin: 0 0 var(--sp-md) 0; font-size: 1rem; }
+    .summary p { margin: var(--sp-xs) 0; font-size: 0.85rem; color: var(--text-secondary); }
+    @media (max-width: 768px) { .tickets-grid { grid-template-columns: 1fr; } }
   `]
 })
 export class MyTicketsComponent implements OnInit {

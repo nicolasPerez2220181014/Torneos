@@ -120,49 +120,120 @@ import { Ticket, TicketStatus } from '../../../core/models/ticket.models';
     </div>
   `,
   styles: [`
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { text-align: center; margin-bottom: 30px; }
-    .tournament-info { background: #e3f2fd; padding: 8px 16px; border-radius: 4px; display: inline-block; margin-top: 10px; }
-    .scanner-section { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #ddd; }
-    .scanner-section h3 { margin: 0 0 20px 0; }
-    .input-section { display: flex; gap: 10px; margin-bottom: 15px; }
-    .code-input { flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; font-family: monospace; }
-    .code-input:focus { outline: none; border-color: #1976d2; }
-    .scanner-help { font-size: 14px; color: #666; }
-    .scanner-help p { margin: 5px 0; }
-    .validation-result { margin-bottom: 30px; }
-    .result-card { display: flex; align-items: flex-start; gap: 20px; padding: 20px; border-radius: 8px; }
-    .result-card.valid { background: #e8f5e8; border: 2px solid #2e7d32; }
-    .result-card.invalid { background: #ffebee; border: 2px solid #d32f2f; }
-    .result-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; }
-    .result-card.valid .result-icon { background: #2e7d32; color: white; }
-    .result-card.invalid .result-icon { background: #d32f2f; color: white; }
+    .container { max-width: 600px; }
+    .header { text-align: center; margin-bottom: var(--sp-2xl); }
+    .header h2 { font-size: 1.4rem; }
+    .tournament-info {
+      background: var(--info-soft);
+      color: var(--info);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-top: var(--sp-sm);
+      font-size: 0.8rem;
+    }
+
+    .scanner-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: var(--sp-xl);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--sp-2xl);
+    }
+    .scanner-section h3 { margin: 0 0 var(--sp-lg) 0; font-size: 1.05rem; }
+    .input-section { display: flex; gap: var(--sp-sm); margin-bottom: var(--sp-lg); }
+    .code-input {
+      flex: 1;
+      padding: 12px 14px;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: monospace;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .code-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .scanner-help { font-size: 0.8rem; color: var(--text-muted); }
+    .scanner-help p { margin: 4px 0; }
+
+    .validation-result { margin-bottom: var(--sp-2xl); }
+    .result-card {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-lg);
+      padding: var(--sp-xl);
+      border-radius: var(--radius-lg);
+      border: 1px solid;
+    }
+    .result-card.valid { background: var(--success-soft); border-color: rgba(0,184,148,0.3); }
+    .result-card.invalid { background: var(--danger-soft); border-color: rgba(231,76,60,0.3); }
+    .result-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .result-card.valid .result-icon { background: var(--success); color: #fff; }
+    .result-card.invalid .result-icon { background: var(--danger); color: #fff; }
     .result-content { flex: 1; }
-    .result-content h4 { margin: 0 0 15px 0; }
-    .ticket-details { display: flex; flex-direction: column; gap: 8px; }
-    .detail-row { display: flex; justify-content: space-between; }
-    .detail-row .code { font-family: monospace; font-weight: bold; }
-    .status { padding: 2px 6px; border-radius: 3px; font-size: 12px; }
-    .status-active { background: #e8f5e8; color: #2e7d32; }
-    .status-used { background: #f0f0f0; color: #666; }
-    .validation-history { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ddd; }
-    .validation-history h3 { margin: 0 0 20px 0; }
-    .empty-history { text-align: center; color: #999; padding: 20px; }
-    .history-item { display: flex; align-items: center; gap: 15px; padding: 10px; border-bottom: 1px solid #eee; }
+    .result-content h4 { margin: 0 0 var(--sp-md) 0; font-size: 0.95rem; color: var(--text-primary); }
+    .ticket-details { display: flex; flex-direction: column; gap: var(--sp-sm); }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); }
+    .detail-row .code { font-family: monospace; font-weight: 600; color: var(--text-primary); }
+
+    .validation-history {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: var(--sp-xl);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--sp-xl);
+    }
+    .validation-history h3 { margin: 0 0 var(--sp-lg) 0; font-size: 1.05rem; }
+    .empty-history { text-align: center; color: var(--text-muted); padding: var(--sp-xl); font-size: 0.85rem; }
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+      padding: var(--sp-md) 0;
+      border-bottom: 1px solid var(--border);
+    }
     .history-item:last-child { border-bottom: none; }
-    .history-icon { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
-    .history-icon.valid { background: #2e7d32; color: white; }
-    .history-icon.invalid { background: #d32f2f; color: white; }
+    .history-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .history-icon.valid { background: var(--success); color: #fff; }
+    .history-icon.invalid { background: var(--danger); color: #fff; }
     .history-content { flex: 1; }
-    .history-code { font-family: monospace; font-weight: bold; }
-    .history-message { font-size: 14px; color: #666; }
-    .history-time { font-size: 12px; color: #999; }
-    .actions { display: flex; justify-content: center; gap: 15px; }
-    .error-message { background: #ffebee; color: #d32f2f; padding: 15px; border-radius: 4px; margin-bottom: 20px; text-align: center; }
-    .btn { padding: 10px 20px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; background: white; }
-    .btn-primary { background: #1976d2; color: white; border-color: #1976d2; }
-    .btn-outline { background: white; color: #666; }
-    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .history-code { font-family: monospace; font-weight: 600; font-size: 0.8rem; color: var(--text-primary); }
+    .history-message { font-size: 0.75rem; color: var(--text-muted); }
+    .history-time { font-size: 0.7rem; color: var(--text-muted); }
+
+    .actions { display: flex; justify-content: center; gap: var(--sp-md); }
+    .error-message {
+      background: var(--danger-soft);
+      color: var(--danger);
+      padding: var(--sp-lg);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--sp-xl);
+      text-align: center;
+      font-size: 0.85rem;
+      border: 1px solid rgba(231,76,60,0.2);
+    }
   `]
 })
 export class TicketValidationComponent implements OnInit {
