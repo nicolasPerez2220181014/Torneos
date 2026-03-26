@@ -17,7 +17,7 @@ import { Tournament } from '../../../core/models/tournament.models';
           <div class="video-container" [ngClass]="{'live': isLive(), 'offline': !isLive()}">
             <div *ngIf="!isLive()" class="offline-overlay">
               <div class="offline-content">
-                <div class="tournament-logo">🎮</div>
+                <div class="tournament-logo"></div>
                 <h2>{{tournament?.name || 'Torneo'}}</h2>
                 <p class="offline-message">{{getOfflineMessage()}}</p>
                 <div class="countdown" *ngIf="tournament">
@@ -34,7 +34,7 @@ import { Tournament } from '../../../core/models/tournament.models';
               <div class="stream-overlay">
                 <div class="game-simulation">
                   <div class="player player-1">
-                    <div class="player-avatar">👤</div>
+                    <div class="player-avatar"></div>
                     <div class="player-info">
                       <div class="player-name">Jugador 1</div>
                       <div class="player-score">{{player1Score}}</div>
@@ -42,7 +42,7 @@ import { Tournament } from '../../../core/models/tournament.models';
                   </div>
                   <div class="vs-indicator">VS</div>
                   <div class="player player-2">
-                    <div class="player-avatar">👤</div>
+                    <div class="player-avatar"></div>
                     <div class="player-info">
                       <div class="player-name">Jugador 2</div>
                       <div class="player-score">{{player2Score}}</div>
@@ -56,13 +56,13 @@ import { Tournament } from '../../../core/models/tournament.models';
             <!-- Stream Controls -->
             <div class="stream-controls">
               <button class="control-btn" [class.active]="isMuted" (click)="toggleMute()">
-                {{isMuted ? '🔇' : '🔊'}}
+                {{isMuted ? '' : ''}}
               </button>
               <div class="volume-slider">
                 <input type="range" min="0" max="100" [(ngModel)]="volume" class="volume-input">
               </div>
               <button class="control-btn" (click)="toggleQuality()">
-                ⚙️ {{currentQuality}}
+                 {{currentQuality}}
               </button>
               <button class="control-btn" (click)="toggleFullscreen()">
                 ⛶
@@ -76,9 +76,9 @@ import { Tournament } from '../../../core/models/tournament.models';
           <div class="stream-header">
             <h1>{{tournament.name}}</h1>
             <div class="stream-stats">
-              <span class="viewer-count">👥 {{viewerCount}} espectadores</span>
-              <span class="category">🎯 {{tournament.category?.name}}</span>
-              <span class="game">🎮 {{tournament.gameType?.name}}</span>
+              <span class="viewer-count"> {{viewerCount}} espectadores</span>
+              <span class="category">{{tournament.category?.name}}</span>
+              <span class="game"> {{tournament.gameType?.name}}</span>
             </div>
           </div>
           <p class="stream-description">{{tournament.description}}</p>
@@ -104,7 +104,7 @@ import { Tournament } from '../../../core/models/tournament.models';
                  [(ngModel)]="newMessage" 
                  (keyup.enter)="sendMessage()"
                  class="message-input">
-          <button (click)="sendMessage()" class="send-btn">📤</button>
+          <button (click)="sendMessage()" class="send-btn"></button>
         </div>
       </div>
     </div>
@@ -296,7 +296,7 @@ export class StreamViewerComponent implements OnInit, OnDestroy {
 
   startChatSimulation() {
     const sampleMessages = [
-      'GG!', '¡Increíble jugada!', 'Vamos equipo azul!', 'Epic fail 😂',
+      'GG!', '¡Increíble jugada!', 'Vamos equipo azul!', 'Epic fail ',
       'OMG que partida', '¡Qué pro!', 'Nooo casi!', 'POGGERS',
       'Clutch time!', '¡Vamos que se puede!', 'F en el chat',
       'Mejor jugador del mundo', '¡Qué tensión!', 'EZ Clap'

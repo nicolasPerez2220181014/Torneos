@@ -20,7 +20,7 @@ import { PaginatedResponse } from '../../../core/models/api.models';
       </div>
       
       <div *ngIf="tournaments && !loading" class="success">
-        <p>Conexión con backend exitosa ✅</p>
+        <p>Conexión con backend exitosa </p>
         <p>Total de torneos: {{ tournaments.pageable.totalElements }}</p>
         
         <div class="tournaments-grid">

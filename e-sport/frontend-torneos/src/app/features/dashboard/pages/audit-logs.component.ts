@@ -14,7 +14,7 @@ import { PaginatedResponse } from '../../../core/models/api.models';
       <div class="header">
         <h2>Logs de Auditoría</h2>
         <button class="btn btn-outline" (click)="refreshLogs()">
-          🔄 Actualizar
+          Actualizar
         </button>
       </div>
 

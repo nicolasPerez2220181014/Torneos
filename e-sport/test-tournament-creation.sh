@@ -1,16 +1,16 @@
 #!/bin/bash
 
-echo "🧪 PRUEBA DE CREACIÓN DE TORNEOS"
+echo "PRUEBA DE CREACIÓN DE TORNEOS"
 echo "================================"
 
 # Verificar que el backend esté corriendo
 echo "1. Verificando backend..."
 if ! curl -s http://localhost:8081/actuator/health > /dev/null; then
-    echo "❌ Backend no está corriendo en puerto 8081"
+    echo "Backend no está corriendo en puerto 8081"
     echo "   Ejecuta: cd backend-torneos && mvn spring-boot:run -Dspring.profiles.active=dev"
     exit 1
 fi
-echo "✅ Backend corriendo"
+echo "Backend corriendo"
 
 # Verificar categorías
 echo -e "\n2. Verificando categorías..."
@@ -53,9 +53,9 @@ echo "$RESPONSE" | jq . 2>/dev/null || echo "$RESPONSE"
 
 # Verificar si se creó
 if echo "$RESPONSE" | grep -q '"id"'; then
-    echo -e "\n✅ Torneo creado exitosamente"
+    echo -e "\nTorneo creado exitosamente"
 else
-    echo -e "\n❌ Error creando torneo"
+    echo -e "\nError creando torneo"
     echo "Posibles causas:"
     echo "- Falta autenticación JWT"
     echo "- IDs de categoría/juego incorrectos"
@@ -66,7 +66,7 @@ echo -e "\n6. Listando torneos..."
 TOURNAMENTS=$(curl -s http://localhost:8081/api/tournaments)
 echo "$TOURNAMENTS" | jq . 2>/dev/null || echo "$TOURNAMENTS"
 
-echo -e "\n🎯 INSTRUCCIONES PARA EL FRONTEND:"
+echo -e "\nINSTRUCCIONES PARA EL FRONTEND:"
 echo "1. Asegúrate de estar autenticado"
 echo "2. Usa las categorías y tipos de juego listados arriba"
 echo "3. Verifica que las fechas sean futuras"

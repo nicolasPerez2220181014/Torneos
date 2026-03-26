@@ -16,12 +16,12 @@ import { TournamentRequest } from './core/models/tournament.models';
       </button>
       
       <div *ngIf="result" style="margin-top: 20px; padding: 10px; border: 1px solid #4caf50; background: #e8f5e9;">
-        <h3>✅ Éxito:</h3>
+        <h3>Éxito:</h3>
         <pre>{{result | json}}</pre>
       </div>
       
       <div *ngIf="error" style="margin-top: 20px; padding: 10px; background: #ffebee; color: #c62828;">
-        <h3>❌ Error:</h3>
+        <h3>Error:</h3>
         <p>{{error}}</p>
       </div>
       

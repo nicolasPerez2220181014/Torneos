@@ -70,7 +70,7 @@ import { StreamAnalytics, StreamQuality } from '../../../core/models/stream-cont
       <!-- Refresh Button -->
       <div class="analytics-actions">
         <button class="btn btn-outline" (click)="refreshAnalytics()">
-          🔄 Actualizar Datos
+          Actualizar Datos
         </button>
       </div>
     </div>

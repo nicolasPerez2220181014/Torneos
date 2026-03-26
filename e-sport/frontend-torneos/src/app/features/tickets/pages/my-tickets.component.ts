@@ -28,7 +28,7 @@ import { Router } from '@angular/router';
           <div class="ticket-details">
             <div class="detail-item">
               <strong>Código:</strong> {{ticket.accessCode}}
-              <button class="btn-copy" (click)="copyCode(ticket.accessCode)">📋</button>
+              <button class="btn-copy" (click)="copyCode(ticket.accessCode)"></button>
             </div>
             <div class="detail-item">
               <strong>Precio:</strong> {{ticket.price | currency:'USD':'symbol':'1.2-2'}}

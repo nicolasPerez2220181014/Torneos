@@ -30,7 +30,7 @@ import { TicketOrder, OrderStatus, TicketStatus } from '../../../core/models/tic
         <div class="order-status">
           <div class="status-icon" [class]="'status-' + order.status.toLowerCase()">
             <span *ngIf="order.status === 'CONFIRMED'">✓</span>
-            <span *ngIf="order.status === 'PENDING'">⏳</span>
+            <span *ngIf="order.status === 'PENDING'"></span>
             <span *ngIf="order.status === 'CANCELLED'">✗</span>
           </div>
           <div class="status-text">

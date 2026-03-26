@@ -1,28 +1,28 @@
 #!/bin/bash
 
-echo "🧪 PRUEBAS DE APIS - BACKEND TORNEOS"
+echo "PRUEBAS DE APIS - BACKEND TORNEOS"
 echo "===================================="
 
 BASE_URL="http://localhost:8081"
 
 # 1. HEALTH CHECK
-echo -e "\n1️⃣ HEALTH CHECK"
+echo -e "\n1. HEALTH CHECK"
 curl -X GET "$BASE_URL/actuator/health"
 
 # 2. CATEGORÍAS (Público)
-echo -e "\n\n2️⃣ LISTAR CATEGORÍAS"
+echo -e "\n\n2. LISTAR CATEGORÍAS"
 curl -X GET "$BASE_URL/api/categories"
 
 # 3. TIPOS DE JUEGO (Público)
-echo -e "\n\n3️⃣ LISTAR TIPOS DE JUEGO"
+echo -e "\n\n3. LISTAR TIPOS DE JUEGO"
 curl -X GET "$BASE_URL/api/game-types"
 
 # 4. TORNEOS (Público)
-echo -e "\n\n4️⃣ LISTAR TORNEOS"
+echo -e "\n\n4. LISTAR TORNEOS"
 curl -X GET "$BASE_URL/api/tournaments"
 
 # 5. CREAR USUARIO
-echo -e "\n\n5️⃣ CREAR USUARIO"
+echo -e "\n\n5. CREAR USUARIO"
 curl -X POST "$BASE_URL/api/users" \
   -H "Content-Type: application/json" \
   -d '{
@@ -32,7 +32,7 @@ curl -X POST "$BASE_URL/api/users" \
   }'
 
 # 6. LOGIN (usar usuario de datos maestros)
-echo -e "\n\n6️⃣ LOGIN"
+echo -e "\n\n6. LOGIN"
 LOGIN_RESPONSE=$(curl -s -X POST "$BASE_URL/api/auth/login" \
   -H "Content-Type: application/json" \
   -d '{
@@ -45,12 +45,12 @@ echo $LOGIN_RESPONSE
 TOKEN=$(echo $LOGIN_RESPONSE | jq -r '.accessToken // .token // empty')
 
 if [ -z "$TOKEN" ]; then
-  echo -e "\n⚠️  No se pudo obtener token. Continuando sin autenticación..."
+  echo -e "\nNo se pudo obtener token. Continuando sin autenticación..."
 else
-  echo -e "\n✅ Token obtenido: ${TOKEN:0:50}..."
+  echo -e "\nToken obtenido: ${TOKEN:0:50}..."
   
   # 7. CREAR TORNEO (requiere autenticación)
-  echo -e "\n\n7️⃣ CREAR TORNEO (requiere ORGANIZER)"
+  echo -e "\n\n7. CREAR TORNEO (requiere ORGANIZER)"
   curl -X POST "$BASE_URL/api/tournaments" \
     -H "Authorization: Bearer $TOKEN" \
     -H "Content-Type: application/json" \
@@ -67,11 +67,11 @@ else
 fi
 
 # 8. SWAGGER UI
-echo -e "\n\n8️⃣ SWAGGER UI"
+echo -e "\n\n8. SWAGGER UI"
 echo "Acceder a: $BASE_URL/swagger-ui.html"
 
 # 9. ACTUATOR HEALTH
-echo -e "\n\n9️⃣ ACTUATOR HEALTH"
+echo -e "\n\n9. ACTUATOR HEALTH"
 curl -X GET "$BASE_URL/actuator/health"
 
-echo -e "\n\n✅ PRUEBAS COMPLETADAS"
+echo -e "\n\nPRUEBAS COMPLETADAS"

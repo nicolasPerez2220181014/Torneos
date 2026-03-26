@@ -255,3 +255,213 @@ Hibernate:
 2026-03-26 13:34:57 [http-nio-8081-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
 2026-03-26 13:34:57 [http-nio-8081-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{pageable={totalElements=14, pageNumber=0, pageSize=14, totalPages=1}, content=[{id=880e8400-e29b-41 (truncated)...]
 2026-03-26 13:34:57 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:45:06 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/auth/profile", parameters={}
+2026-03-26 13:45:06 [http-nio-8081-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-03-26 13:45:06 [http-nio-8081-exec-9] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2026-03-26 13:45:06 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/auth/profile.]
+2026-03-26 13:45:06 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-26 13:45:06 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/simple/tournaments", parameters={}
+2026-03-26 13:45:06 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/game-types/simple", parameters={}
+2026-03-26 13:45:06 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.SimpleTournamentController#getTournaments()
+2026-03-26 13:45:06 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.GameTypeController#findAllSimple()
+2026-03-26 13:45:06 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/categories/simple", parameters={}
+2026-03-26 13:45:06 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.CategoryController#findAllSimple()
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.active,
+        ce1_0.name 
+    from
+        categories ce1_0
+Hibernate: 
+    select
+        gte1_0.id,
+        gte1_0.active,
+        gte1_0.name 
+    from
+        game_types gte1_0
+2026-03-26 13:45:06 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:45:06 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[CategoryResponse[id=73b74893-35ca-4c61-b5a4-49a9f77d6d06, name=Deportes Electrónicos, active=true], (truncated)...]
+2026-03-26 13:45:06 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:45:06 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:45:06 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[GameTypeResponse[id=325a62b6-9b53-44ad-b798-26192461a16a, name=League of Legends, active=true], Gam (truncated)...]
+2026-03-26 13:45:06 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:45:06 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:45:06 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{pageable={totalElements=14, pageNumber=0, pageSize=14, totalPages=1}, content=[{id=880e8400-e29b-41 (truncated)...]
+2026-03-26 13:45:06 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:45:19 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/auth/profile", parameters={}
+2026-03-26 13:45:19 [http-nio-8081-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-03-26 13:45:19 [http-nio-8081-exec-3] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2026-03-26 13:45:19 [http-nio-8081-exec-3] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/auth/profile.]
+2026-03-26 13:45:19 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-26 13:45:19 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/game-types/simple", parameters={}
+2026-03-26 13:45:19 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/simple/tournaments", parameters={}
+2026-03-26 13:45:19 [http-nio-8081-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.GameTypeController#findAllSimple()
+2026-03-26 13:45:19 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.SimpleTournamentController#getTournaments()
+2026-03-26 13:45:19 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/categories/simple", parameters={}
+2026-03-26 13:45:19 [http-nio-8081-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.CategoryController#findAllSimple()
+Hibernate: 
+    select
+        gte1_0.id,
+        gte1_0.active,
+        gte1_0.name 
+    from
+        game_types gte1_0
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.active,
+        ce1_0.name 
+    from
+        categories ce1_0
+2026-03-26 13:45:19 [http-nio-8081-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:45:19 [http-nio-8081-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:45:19 [http-nio-8081-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[CategoryResponse[id=73b74893-35ca-4c61-b5a4-49a9f77d6d06, name=Deportes Electrónicos, active=true], (truncated)...]
+2026-03-26 13:45:19 [http-nio-8081-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[GameTypeResponse[id=325a62b6-9b53-44ad-b798-26192461a16a, name=League of Legends, active=true], Gam (truncated)...]
+2026-03-26 13:45:19 [http-nio-8081-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:45:19 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:45:19 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:45:19 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{pageable={totalElements=14, pageNumber=0, pageSize=14, totalPages=1}, content=[{id=880e8400-e29b-41 (truncated)...]
+2026-03-26 13:45:19 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:46:12 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/auth/profile", parameters={}
+2026-03-26 13:46:12 [http-nio-8081-exec-8] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2026-03-26 13:46:12 [http-nio-8081-exec-8] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2026-03-26 13:46:12 [http-nio-8081-exec-8] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/auth/profile.]
+2026-03-26 13:46:12 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-26 13:46:12 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/categories/simple", parameters={}
+2026-03-26 13:46:12 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/game-types/simple", parameters={}
+2026-03-26 13:46:12 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/simple/tournaments", parameters={}
+2026-03-26 13:46:12 [http-nio-8081-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.CategoryController#findAllSimple()
+2026-03-26 13:46:12 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.SimpleTournamentController#getTournaments()
+2026-03-26 13:46:12 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.GameTypeController#findAllSimple()
+Hibernate: 
+    select
+        gte1_0.id,
+        gte1_0.active,
+        gte1_0.name 
+    from
+        game_types gte1_0
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.active,
+        ce1_0.name 
+    from
+        categories ce1_0
+2026-03-26 13:46:12 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:46:12 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{pageable={totalElements=14, pageNumber=0, pageSize=14, totalPages=1}, content=[{id=880e8400-e29b-41 (truncated)...]
+2026-03-26 13:46:12 [http-nio-8081-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:46:12 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-26 13:46:12 [http-nio-8081-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[CategoryResponse[id=73b74893-35ca-4c61-b5a4-49a9f77d6d06, name=Deportes Electrónicos, active=true], (truncated)...]
+2026-03-26 13:46:12 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[GameTypeResponse[id=325a62b6-9b53-44ad-b798-26192461a16a, name=League of Legends, active=true], Gam (truncated)...]
+2026-03-26 13:46:12 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:46:12 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-26 13:46:12 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK

@@ -13,7 +13,7 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
       <div class="header">
         <h2>Dashboard Ejecutivo</h2>
         <button class="btn btn-outline" (click)="refreshMetrics()">
-          🔄 Actualizar
+          Actualizar
         </button>
       </div>
 
@@ -25,7 +25,7 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
         <!-- Key Metrics -->
         <div class="metrics-grid">
           <div class="metric-card primary">
-            <div class="metric-icon">🏆</div>
+            <div class="metric-icon"></div>
             <div class="metric-content">
               <div class="metric-value">{{metrics.totalTournaments}}</div>
               <div class="metric-label">Total Torneos</div>
@@ -34,7 +34,7 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
           </div>
 
           <div class="metric-card success">
-            <div class="metric-icon">👥</div>
+            <div class="metric-icon"></div>
             <div class="metric-content">
               <div class="metric-value">{{formatNumber(metrics.totalUsers)}}</div>
               <div class="metric-label">Usuarios Registrados</div>
@@ -42,7 +42,7 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
           </div>
 
           <div class="metric-card warning">
-            <div class="metric-icon">🎫</div>
+            <div class="metric-icon"></div>
             <div class="metric-content">
               <div class="metric-value">{{formatNumber(metrics.totalTicketsSold)}}</div>
               <div class="metric-label">Tickets Vendidos</div>
@@ -50,7 +50,7 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
           </div>
 
           <div class="metric-card info">
-            <div class="metric-icon">💰</div>
+            <div class="metric-icon"></div>
             <div class="metric-content">
               <div class="metric-value">\${{formatCurrency(metrics.totalRevenue)}}</div>
               <div class="metric-label">Ingresos Totales</div>
@@ -58,7 +58,7 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
           </div>
 
           <div class="metric-card secondary">
-            <div class="metric-icon">📺</div>
+            <div class="metric-icon"></div>
             <div class="metric-content">
               <div class="metric-value">{{metrics.activeStreams}}</div>
               <div class="metric-label">Streams Activos</div>
@@ -66,7 +66,7 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
           </div>
 
           <div class="metric-card accent">
-            <div class="metric-icon">👁️</div>
+            <div class="metric-icon"></div>
             <div class="metric-content">
               <div class="metric-value">{{formatNumber(metrics.totalViews)}}</div>
               <div class="metric-label">Total Visualizaciones</div>
@@ -95,22 +95,22 @@ import { DashboardMetrics, ActivityType } from '../../../core/models/audit.model
           <h3>Acciones Rápidas</h3>
           <div class="actions-grid">
             <button class="action-card" (click)="navigateTo('/tournaments')">
-              <div class="action-icon">🏆</div>
+              <div class="action-icon"></div>
               <div class="action-label">Gestionar Torneos</div>
             </button>
             
             <button class="action-card" (click)="navigateTo('/users')">
-              <div class="action-icon">👥</div>
+              <div class="action-icon"></div>
               <div class="action-label">Gestionar Usuarios</div>
             </button>
             
             <button class="action-card" (click)="navigateTo('/dashboard/audit')">
-              <div class="action-icon">📋</div>
+              <div class="action-icon"></div>
               <div class="action-label">Ver Auditoría</div>
             </button>
             
             <button class="action-card" (click)="navigateTo('/validation')">
-              <div class="action-icon">🎫</div>
+              <div class="action-icon"></div>
               <div class="action-label">Validar Tickets</div>
             </button>
           </div>

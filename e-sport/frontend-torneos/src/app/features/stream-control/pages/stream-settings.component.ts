@@ -104,7 +104,7 @@ import { StreamSettings, StreamQuality } from '../../../core/models/stream-contr
                 readonly
                 class="form-control">
               <button type="button" class="btn btn-outline" (click)="generateKey()">
-                🔄 Regenerar
+                Regenerar
               </button>
             </div>
             <small>Usa esta clave en tu software de streaming (OBS, XSplit, etc.)</small>
