@@ -1,181 +1,68 @@
-# Backend Torneos - Plataforma de Torneos Virtuales
+# Backend Torneos E-Sport
 
-## 🚀 Inicio Rápido
+API REST para gestión de torneos de e-sports. Desarrollado con Spring Boot 3.2 y Java 17.
 
-### Requisitos
+## Requisitos
+
 - Java 17
-- Maven 3.9+
-- PostgreSQL 15
-- Docker (opcional)
+- Maven 3.6+ (o usar el wrapper `./mvnw`)
+- PostgreSQL 15 (opcional, se puede usar H2 en desarrollo)
 
-### Ejecutar Localmente
+## Cómo correr
 
 ```bash
-# Compilar
-mvn clean package -DskipTests
+# Con H2 (sin necesidad de BD externa)
+./mvnw spring-boot:run -Dspring.profiles.active=dev
 
-# Ejecutar
-java -jar target/torneos-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+# Con PostgreSQL
+./mvnw spring-boot:run -Dspring.profiles.active=postgres
 ```
 
-### Con Docker
+Si usas PostgreSQL, crea la BD `torneo` y configura las credenciales en `.env` (ver `.env.example`).
+
+## Endpoints útiles
+
+- API: http://localhost:8081
+- Swagger: http://localhost:8081/swagger-ui.html
+- Health: http://localhost:8081/actuator/health
+
+## Tests
 
 ```bash
-# Iniciar con docker-compose
+./mvnw test
+```
+
+Los tests de integración usan TestContainers (necesitas Docker corriendo).
+
+## Docker
+
+```bash
 docker-compose up -d
-
-# Detener
-docker-compose down
 ```
 
-## 📚 Documentación
+Levanta PostgreSQL + la app en un solo comando.
 
-### Arquitectura
-- **Arquitectura Limpia**: Separación de capas (dominio, aplicación, infraestructura)
-- **Eventos de Dominio**: Arquitectura orientada a eventos
-- **Seguridad JWT**: Autenticación y autorización basada en tokens
-- **Observabilidad**: Métricas, logs estructurados, health checks
+## Estructura
 
-### Endpoints Principales
-- **API**: http://localhost:8081
-- **Swagger**: http://localhost:8081/swagger-ui.html
-- **Health**: http://localhost:8081/actuator/health
-- **Metrics**: http://localhost:8081/actuator/metrics
+El proyecto sigue una arquitectura por capas:
 
-### Profiles
-- `dev`: Desarrollo con PostgreSQL
-- `qa`: QA
-- `prod`: Producción
+- `domain/` - Entidades y reglas de negocio
+- `application/` - Servicios y DTOs
+- `infrastructure/` - Controllers, persistencia JPA, configuración de seguridad
 
-## 🧪 Testing
+## Seguridad
 
-```bash
-# Ejecutar tests
-mvn test
+Autenticación con JWT. Roles: USER, ORGANIZER, SUBADMIN.
 
-# Solo unitarios
-mvn test -Dtest="*Test"
+Los endpoints públicos (GET de torneos, categorías, tipos de juego) no requieren token.
+Para crear/modificar torneos se necesita rol ORGANIZER.
 
-# Solo integración
-mvn test -Dtest="*IntegrationTest"
+## Variables de entorno
+
 ```
-
-## 🐳 Docker
-
-```bash
-# Build imagen
-docker build -t torneos-backend .
-
-# Run
-docker run -p 8081:8081 torneos-backend
-```
-
-## 🔐 Seguridad
-
-### JWT
-- Autenticación basada en tokens
-- Roles: USER, ORGANIZER, SUBADMIN
-- Endpoints protegidos con @PreAuthorize
-
-### Variables de Entorno
-```bash
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=torneo
 DB_USER=postgres
-DB_PASSWORD=your-password
-JWT_SECRET=your-secret-key
+DB_PASSWORD=1234
 ```
-
-## 📊 Observabilidad
-
-### Métricas Personalizadas
-- `tickets.created`: Total de tickets creados
-- `tournaments.published`: Total de torneos publicados
-
-### Logs
-- Formato JSON en producción
-- Logs estructurados con MDC
-
-## 🚢 Despliegue
-
-### AWS ECS
-```bash
-cd deployment/aws
-./deploy.sh
-```
-
-### Azure Container Instances
-```bash
-cd deployment/azure
-./deploy.sh
-```
-
-## 📝 Scripts Útiles
-
-```bash
-# Iniciar todo (backend + frontend)
-/Users/nicolas.perez/Pragma/Torneos/e-sport/start-all.sh
-
-# Detener todo
-/Users/nicolas.perez/Pragma/Torneos/e-sport/stop-all.sh
-
-# Ver logs
-tail -f backend.log
-```
-
-## 🏗️ Estructura del Proyecto
-
-```
-src/
-├── main/
-│   ├── java/
-│   │   └── com/example/torneos/
-│   │       ├── domain/          # Entidades y lógica de negocio
-│   │       ├── application/     # Casos de uso y DTOs
-│   │       └── infrastructure/  # Controladores, repositorios, config
-│   └── resources/
-│       ├── application.yml
-│       ├── application-dev.yml
-│       ├── application-qa.yml
-│       └── application-prod.yml
-└── test/
-    └── java/                    # Tests unitarios e integración
-```
-
-## 🔧 Configuración
-
-### Base de Datos
-PostgreSQL 15 con Flyway para migraciones
-
-### Cache
-Opcional: Redis para cache distribuido
-
-### Monitoreo
-- Spring Boot Actuator
-- Prometheus metrics
-- Health checks
-
-## 📦 CI/CD
-
-### GitHub Actions
-Pipeline automático en `.github/workflows/ci-cd.yml`
-
-### GitLab CI
-Pipeline en `.gitlab-ci.yml`
-
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crear feature branch
-3. Commit cambios
-4. Push al branch
-5. Crear Pull Request
-
-## 📄 Licencia
-
-Proyecto privado - Pragma
-
-## 📞 Soporte
-
-Para más información, consultar la documentación en `/doc`
