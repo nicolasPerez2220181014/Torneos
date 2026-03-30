@@ -7,9 +7,6 @@ import java.util.UUID;
  * Entidad de dominio que representa un torneo de e-sports.
  * Contiene toda la información necesaria para gestionar torneos,
  * incluyendo fechas, participantes y estados del torneo.
- * 
- * @author Equipo de Desarrollo
- * @version 1.0
  */
 public class Tournament {
     

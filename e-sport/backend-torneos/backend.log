@@ -1,4 +1,22 @@
 [INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/io/github/git-commit-id/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/boot/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/flywaydb/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/jooq/maven-metadata.xml
+Progress (1): 249 BProgress (2): 249 B | 234 BProgress (3): 249 B | 234 B | 398 B                                   Downloaded from central: https://repo.maven.apache.org/maven2/org/flywaydb/maven-metadata.xml (234 B at 835 B/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/maven-metadata.xml
+Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/boot/maven-metadata.xml (249 B at 882 B/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/liquibase/maven-metadata.xml
+Progress (2): 398 B | 255 B                           Downloaded from central: https://repo.maven.apache.org/maven2/org/jooq/maven-metadata.xml (398 B at 1.4 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/graalvm/buildtools/maven-metadata.xml
+Downloaded from central: https://repo.maven.apache.org/maven2/io/github/git-commit-id/maven-metadata.xml (255 B at 885 B/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+Progress (1): 394 BProgress (2): 394 B | 375 B                           Downloaded from central: https://repo.maven.apache.org/maven2/org/liquibase/maven-metadata.xml (394 B at 11 kB/s)
+Progress (2): 375 B | 4.6 kB                            Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+Progress (2): 375 B | 12 kBProgress (2): 375 B | 14 kB                           Downloaded from central: https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/maven-metadata.xml (375 B at 9.6 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 397 kB/s)
+Progress (1): 242 B                   Downloaded from central: https://repo.maven.apache.org/maven2/org/graalvm/buildtools/maven-metadata.xml (242 B at 4.4 kB/s)
+Progress (1): 3.1 kBProgress (1): 7.7 kBProgress (1): 12 kB Progress (1): 17 kBProgress (1): 20 kBProgress (1): 21 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (21 kB at 268 kB/s)
 [INFO] 
 [INFO] ------------------------< com.example:torneos >-------------------------
 [INFO] Building torneos 0.0.1-SNAPSHOT
@@ -26,37 +44,37 @@
 [INFO] 
 [INFO] --- spring-boot:3.2.0:run (default-cli) @ torneos ---
 [INFO] Attaching agents: []
-14:40:33,600 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.11
-14:40:33,601 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Here is a list of configurators discovered as a service, by rank: 
-14:40:33,601 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
-14:40:33,601 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
-14:40:33,601 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
-14:40:33,603 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 1 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
-14:40:33,603 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
-14:40:33,604 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
-14:40:33,604 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
-14:40:33,604 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
-14:40:33,604 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
-14:40:33,604 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
-14:40:33,604 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
-14:40:33,604 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
-14:40:33,604 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
-14:40:33,605 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
-14:40:33,605 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Trying to configure with ch.qos.logback.classic.BasicConfigurator
-14:40:33,605 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
-14:40:33,605 |-INFO in ch.qos.logback.classic.BasicConfigurator@4b6e2263 - Setting up default configuration.
-14:40:33,611 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 6 milliseconds. ExecutionStatus=NEUTRAL
-14:40:33,748 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [CONSOLE_JSON] not referenced. Skipping further processing.
-14:40:33,748 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE_PLAIN]
-14:40:33,748 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-14:40:33,750 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-14:40:33,754 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
-14:40:33,754 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@344f4dea - Propagating INFO level on Logger[ROOT] onto the JUL framework
-14:40:33,754 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE_PLAIN] to Logger[ROOT]
-14:40:33,754 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.example.torneos] to DEBUG
-14:40:33,754 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@344f4dea - Propagating DEBUG level on Logger[com.example.torneos] onto the JUL framework
-14:40:33,754 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@1b7c473a - End of configuration.
-14:40:33,754 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@5e4bd84a - Registering current configuration as safe fallback point
+13:44:21,511 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.11
+13:44:21,513 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Here is a list of configurators discovered as a service, by rank: 
+13:44:21,513 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+13:44:21,513 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+13:44:21,513 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+13:44:21,514 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+13:44:21,514 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+13:44:21,515 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+13:44:21,515 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+13:44:21,516 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+13:44:21,516 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 1 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+13:44:21,516 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+13:44:21,516 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+13:44:21,516 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+13:44:21,516 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
+13:44:21,516 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 0 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+13:44:21,516 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Trying to configure with ch.qos.logback.classic.BasicConfigurator
+13:44:21,516 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
+13:44:21,516 |-INFO in ch.qos.logback.classic.BasicConfigurator@4b6e2263 - Setting up default configuration.
+13:44:21,524 |-INFO in ch.qos.logback.classic.util.ContextInitializer@6e4566f1 - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 8 milliseconds. ExecutionStatus=NEUTRAL
+13:44:21,695 |-WARN in ch.qos.logback.core.model.processor.AppenderModelHandler - Appender named [CONSOLE_JSON] not referenced. Skipping further processing.
+13:44:21,695 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE_PLAIN]
+13:44:21,695 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+13:44:21,696 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+13:44:21,701 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+13:44:21,701 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@344f4dea - Propagating INFO level on Logger[ROOT] onto the JUL framework
+13:44:21,701 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE_PLAIN] to Logger[ROOT]
+13:44:21,701 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [com.example.torneos] to DEBUG
+13:44:21,701 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@344f4dea - Propagating DEBUG level on Logger[com.example.torneos] onto the JUL framework
+13:44:21,701 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@1b7c473a - End of configuration.
+13:44:21,701 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@5e4bd84a - Registering current configuration as safe fallback point
 
 
   .   ____          _            __ _ _
@@ -67,74 +85,314 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.0)
 
-2026-03-26 14:40:33 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
-2026-03-26 14:40:33 [main] INFO  c.example.torneos.TorneosApplication - Starting TorneosApplication using Java 25.0.1 with PID 92084 (/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/target/classes started by nicolas.perez in /Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos)
-2026-03-26 14:40:33 [main] DEBUG c.example.torneos.TorneosApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
-2026-03-26 14:40:33 [main] INFO  c.example.torneos.TorneosApplication - The following 1 profile is active: "dev"
-2026-03-26 14:40:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-26 14:40:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86 ms. Found 13 JPA repository interfaces.
+2026-03-30 13:44:21 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-03-30 13:44:21 [main] INFO  c.example.torneos.TorneosApplication - Starting TorneosApplication using Java 25.0.1 with PID 58340 (/Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos/target/classes started by nicolas.perez in /Users/nicolas.perez/Pragma/Torneos/e-sport/backend-torneos)
+2026-03-30 13:44:21 [main] DEBUG c.example.torneos.TorneosApplication - Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-03-30 13:44:21 [main] INFO  c.example.torneos.TorneosApplication - The following 1 profile is active: "dev"
+2026-03-30 13:44:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-30 13:44:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 13 JPA repository interfaces.
 WARNING: A restricted method in java.lang.System has been called
 WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/Users/nicolas.perez/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar)
 WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
 WARNING: Restricted methods will be blocked in a future release unless native access is enabled
 
-2026-03-26 14:40:34 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
-2026-03-26 14:40:34 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
-2026-03-26 14:40:34 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-03-26 14:40:34 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
-2026-03-26 14:40:34 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-03-26 14:40:34 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 781 ms
-2026-03-26 14:40:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-03-26 14:40:34 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67c0c90b
-2026-03-26 14:40:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-03-26 14:40:34 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
-2026-03-26 14:40:34 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
-2026-03-26 14:40:34 [main] INFO  o.f.c.i.license.VersionPrinter - 
-2026-03-26 14:40:34 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torneo (PostgreSQL 18.0)
-2026-03-26 14:40:34 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
-2026-03-26 14:40:34 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.037s)
-2026-03-26 14:40:34 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
-2026-03-26 14:40:34 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
-2026-03-26 14:40:34 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-03-26 14:40:34 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
-2026-03-26 14:40:34 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-03-26 14:40:35 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-26 14:40:35 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-03-26 14:40:35 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-26 14:40:35 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-26 14:40:35 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-03-26 14:40:35 [main] DEBUG c.e.t.i.c.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-03-26 14:40:35 [main] DEBUG o.s.w.f.ServerHttpObservationFilter - Filter 'webMvcObservationFilter' configured for use
-2026-03-26 14:40:36 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-03-26 14:40:36 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+2026-03-30 13:44:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-03-30 13:44:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-03-30 13:44:22 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-03-30 13:44:22 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-03-30 13:44:22 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-03-30 13:44:22 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 873 ms
+2026-03-30 13:44:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-03-30 13:44:22 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6cd7f381
+2026-03-30 13:44:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-03-30 13:44:22 [main] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.22.3 by Redgate
+2026-03-30 13:44:22 [main] INFO  o.f.c.i.license.VersionPrinter - See release notes here: https://rd.gt/416ObMi
+2026-03-30 13:44:22 [main] INFO  o.f.c.i.license.VersionPrinter - 
+2026-03-30 13:44:22 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torneo (PostgreSQL 18.0)
+2026-03-30 13:44:22 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2026-03-30 13:44:22 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 6 migrations (execution time 00:00.053s)
+2026-03-30 13:44:22 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 6
+2026-03-30 13:44:22 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2026-03-30 13:44:23 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-30 13:44:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-03-30 13:44:23 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-03-30 13:44:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-30 13:44:23 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-30 13:44:23 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-30 13:44:23 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-30 13:44:23 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-30 13:44:24 [main] DEBUG c.e.t.i.c.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-03-30 13:44:24 [main] DEBUG o.s.w.f.ServerHttpObservationFilter - Filter 'webMvcObservationFilter' configured for use
+2026-03-30 13:44:24 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-30 13:44:24 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: b1130482-c36c-4630-91b3-d340ef5e7245
+Using generated security password: a4958361-91d7-4046-b140-c7d8e35dcb18
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-03-26 14:40:36 [main] DEBUG c.e.t.i.w.v.ApiVersionRequestMappingHandlerMapping - 68 mappings in 'apiVersionRequestMappingHandlerMapping'
-2026-03-26 14:40:36 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 68 mappings in 'requestMappingHandlerMapping'
-2026-03-26 14:40:36 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
-2026-03-26 14:40:36 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
-2026-03-26 14:40:36 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c634247, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@414c63f1, org.springframework.security.web.context.SecurityContextHolderFilter@2e826bd1, org.springframework.security.web.header.HeaderWriterFilter@18e8003a, org.springframework.web.filter.CorsFilter@e6522bd, org.springframework.security.web.authentication.logout.LogoutFilter@52f1d01b, com.example.torneos.infrastructure.config.JwtAuthenticationFilter@7287811f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18601f1e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3db2665d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3f471e59, org.springframework.security.web.session.SessionManagementFilter@57149e0a, org.springframework.security.web.access.ExceptionTranslationFilter@112aa99c, org.springframework.security.web.access.intercept.AuthorizationFilter@30ebad79]
-2026-03-26 14:40:36 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2026-03-26 14:40:36 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
-2026-03-26 14:40:36 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
-2026-03-26 14:40:36 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
-2026-03-26 14:40:36 [main] INFO  c.example.torneos.TorneosApplication - Started TorneosApplication in 3.232 seconds (process running for 3.339)
-2026-03-26 14:40:50 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-03-26 14:40:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-03-26 14:40:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-03-30 13:44:24 [main] DEBUG c.e.t.i.w.v.ApiVersionRequestMappingHandlerMapping - 68 mappings in 'apiVersionRequestMappingHandlerMapping'
+2026-03-30 13:44:24 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 68 mappings in 'requestMappingHandlerMapping'
+2026-03-30 13:44:24 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-03-30 13:44:24 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoint(s) beneath base path '/actuator'
+2026-03-30 13:44:24 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@19c37463, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d57624a, org.springframework.security.web.context.SecurityContextHolderFilter@7a9c91e7, org.springframework.security.web.header.HeaderWriterFilter@456c528c, org.springframework.web.filter.CorsFilter@15cdc117, org.springframework.security.web.authentication.logout.LogoutFilter@6b00eaae, com.example.torneos.infrastructure.config.JwtAuthenticationFilter@356c8fa9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b85fabc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d8c1584, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f446346, org.springframework.security.web.session.SessionManagementFilter@608c36a6, org.springframework.security.web.access.ExceptionTranslationFilter@4e80180c, org.springframework.security.web.access.intercept.AuthorizationFilter@5d1206e0]
+2026-03-30 13:44:24 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-03-30 13:44:25 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-03-30 13:44:25 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-03-30 13:44:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-03-30 13:44:25 [main] INFO  c.example.torneos.TorneosApplication - Started TorneosApplication in 3.647 seconds (process running for 3.78)
+2026-03-30 13:44:33 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-30 13:44:33 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@70abd04e
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@3aee9ce3
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-03-30 13:44:33 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-03-30 13:44:33 [http-nio-8081-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-03-30 13:44:33 [http-nio-8081-exec-1] WARN  o.s.w.s.h.HandlerMappingIntrospector - Cache miss for REQUEST dispatch to '/actuator/health' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/actuator/health", parameters={}
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/octet-stream" to []
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/vnd.spring-boot.actuator.v3+json', given [*/*] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [org.springframework.boot.actuate.health.SystemHealth@2c0c0a00]
+2026-03-30 13:44:33 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-30 14:46:28 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/auth/login", parameters={}
+2026-03-30 14:46:28 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.AuthController#login(LoginRequestDto)
+2026-03-30 14:46:28 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.example.torneos.application.dto.request.LoginRequestDto@2ff5fff9]
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.email=?
+Hibernate: 
+    insert 
+    into
+        refresh_tokens
+        (created_at, expires_at, revoked, token, user_email, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        audit_log
+        (actor_user_id, created_at, entity_id, entity_type, event_type, metadata, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2026-03-30 14:46:28 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:28 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.example.torneos.application.service.AuthenticationService$AuthResponse@4bf04bfe]
+2026-03-30 14:46:28 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-30 14:46:28 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/game-types/simple", parameters={}
+2026-03-30 14:46:28 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.GameTypeController#findAllSimple()
+2026-03-30 14:46:28 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/categories/simple", parameters={}
+2026-03-30 14:46:28 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/simple/tournaments", parameters={}
+2026-03-30 14:46:28 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.SimpleTournamentController#getTournaments()
+2026-03-30 14:46:28 [http-nio-8081-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.CategoryController#findAllSimple()
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.active,
+        ce1_0.name 
+    from
+        categories ce1_0
+Hibernate: 
+    select
+        gte1_0.id,
+        gte1_0.active,
+        gte1_0.name 
+    from
+        game_types gte1_0
+2026-03-30 14:46:28 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:28 [http-nio-8081-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:28 [http-nio-8081-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[CategoryResponse[id=73b74893-35ca-4c61-b5a4-49a9f77d6d06, name=Deportes Electrónicos, active=true], (truncated)...]
+2026-03-30 14:46:28 [http-nio-8081-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[GameTypeResponse[id=325a62b6-9b53-44ad-b798-26192461a16a, name=League of Legends, active=true], Gam (truncated)...]
+2026-03-30 14:46:28 [http-nio-8081-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-30 14:46:28 [http-nio-8081-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-30 14:46:28 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:28 [http-nio-8081-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{pageable={totalElements=16, pageNumber=0, pageSize=16, totalPages=1}, content=[{id=1a94a29c-8469-45 (truncated)...]
+2026-03-30 14:46:28 [http-nio-8081-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-30 14:46:36 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/simple/dashboard/metrics", parameters={}
+2026-03-30 14:46:36 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.SimpleTournamentController#getDashboardMetrics()
+2026-03-30 14:46:37 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:37 [http-nio-8081-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{activeStreams=0, recentActivity=[{count=16, trend=0, label=Torneos Creados, type=TOURNAMENTS_CREATE (truncated)...]
+2026-03-30 14:46:37 [http-nio-8081-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-30 14:46:39 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/categories/simple", parameters={}
+2026-03-30 14:46:39 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.CategoryController#findAllSimple()
+Hibernate: 
+    select
+        ce1_0.id,
+        ce1_0.active,
+        ce1_0.name 
+    from
+        categories ce1_0
+2026-03-30 14:46:39 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/simple/tournaments", parameters={}
+2026-03-30 14:46:39 [http-nio-8081-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.SimpleTournamentController#getTournaments()
+2026-03-30 14:46:39 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/game-types/simple", parameters={}
+2026-03-30 14:46:39 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.GameTypeController#findAllSimple()
+Hibernate: 
+    select
+        gte1_0.id,
+        gte1_0.active,
+        gte1_0.name 
+    from
+        game_types gte1_0
+2026-03-30 14:46:39 [http-nio-8081-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:39 [http-nio-8081-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{pageable={totalElements=16, pageNumber=0, pageSize=16, totalPages=1}, content=[{id=1a94a29c-8469-45 (truncated)...]
+2026-03-30 14:46:39 [http-nio-8081-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-30 14:46:39 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:39 [http-nio-8081-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[CategoryResponse[id=73b74893-35ca-4c61-b5a4-49a9f77d6d06, name=Deportes Electrónicos, active=true], (truncated)...]
+2026-03-30 14:46:39 [http-nio-8081-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-30 14:46:39 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:39 [http-nio-8081-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [[GameTypeResponse[id=325a62b6-9b53-44ad-b798-26192461a16a, name=League of Legends, active=true], Gam (truncated)...]
+2026-03-30 14:46:39 [http-nio-8081-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-30 14:46:41 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/users?page=0&size=12", parameters={masked}
+2026-03-30 14:46:41 [http-nio-8081-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.UserController#findAll(Pageable)
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    order by
+        ue1_0.full_name 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        count(ue1_0.id) 
+    from
+        users ue1_0
+2026-03-30 14:46:41 [http-nio-8081-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:41 [http-nio-8081-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [Page 1 of 2 containing com.example.torneos.application.dto.response.UserResponse instances]
+2026-03-30 14:46:41 [http-nio-8081-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+Hibernate: 
+    select
+        ue1_0.id,
+        ue1_0.created_at,
+        ue1_0.email,
+        ue1_0.full_name,
+        ue1_0.role,
+        ue1_0.updated_at 
+    from
+        users ue1_0 
+    where
+        ue1_0.id=?
+2026-03-30 14:46:43 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/simple/dashboard/metrics", parameters={}
+2026-03-30 14:46:43 [http-nio-8081-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.example.torneos.infrastructure.controller.SimpleTournamentController#getDashboardMetrics()
+2026-03-30 14:46:43 [http-nio-8081-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json]
+2026-03-30 14:46:43 [http-nio-8081-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{activeStreams=0, recentActivity=[{count=16, trend=0, label=Torneos Creados, type=TOURNAMENTS_CREATE (truncated)...]
+2026-03-30 14:46:43 [http-nio-8081-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-03-30 14:47:13 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-30 14:47:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-03-30 14:47:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  18.815 s
-[INFO] Finished at: 2026-03-26T14:40:50-05:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.2.0:run (default-cli) on project torneos: Process terminated with exit code: 143 -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

@@ -7,9 +7,6 @@ import java.time.LocalDateTime;
 /**
  * DTO para la creación de etapas de venta de tickets.
  * Representa los diferentes períodos de venta con precios y capacidades específicas.
- * 
- * @author Equipo de Desarrollo
- * @version 1.0
  */
 public record CreateTicketSaleStageRequest(
     // Tipo de etapa de venta (madrugador, regular, último minuto)
